@@ -1,67 +1,57 @@
 // ===========================
+// ULTRA-LUXURY JAVASCRIPT
+// Refined interactions for haute couture experience
+// ===========================
+
+'use strict';
+
+// ===========================
 // Mobile Menu Toggle
 // ===========================
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-});
-
-// Close menu when clicking on a link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
-});
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('active')) {
-        menuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-});
+    // Close menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
 
-// ===========================
-// Navbar Scroll Effect
-// ===========================
-const navbar = document.getElementById('navbar');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-
-    lastScroll = currentScroll;
-});
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('active')) {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
 
 // ===========================
-// Smooth Scrolling
+// Smooth Scrolling with Refined Easing
 // ===========================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
 
-        // Don't prevent default if it's just '#'
         if (href === '#') return;
 
         e.preventDefault();
         const target = document.querySelector(href);
 
         if (target) {
-            const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+            const offsetTop = target.offsetTop - 100;
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
@@ -71,219 +61,408 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ===========================
-// Product Filtering
+// Refined Navbar Behavior
 // ===========================
-const filterButtons = document.querySelectorAll('.filter-btn');
-const productCards = document.querySelectorAll('.product-card');
+const navbar = document.getElementById('navbar');
+let lastScroll = 0;
 
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Add active class to clicked button
-        button.classList.add('active');
-
-        const filterValue = button.getAttribute('data-filter');
-
-        productCards.forEach(card => {
-            const category = card.getAttribute('data-category');
-
-            if (filterValue === 'all' || category === filterValue) {
-                card.style.display = 'block';
-                // Trigger reflow for animation
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 10);
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 300);
-            }
-        });
-    });
-});
-
-// ===========================
-// Scroll Reveal Animation
-// ===========================
-const revealElements = () => {
-    const reveals = document.querySelectorAll('.product-card, .testimonial-card, .stat, .about-text, .about-image');
-
-    reveals.forEach(element => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-
-        if (elementTop < windowHeight - elementVisible) {
-            element.classList.add('reveal', 'active');
-        }
-    });
-};
-
-// Initial check
-revealElements();
-
-// Check on scroll with throttling for performance
-let scrollTimeout;
 window.addEventListener('scroll', () => {
-    if (scrollTimeout) {
-        window.cancelAnimationFrame(scrollTimeout);
+    const currentScroll = window.pageYOffset;
+
+    // Add subtle shadow on scroll
+    if (currentScroll > 50) {
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.06)';
+    } else {
+        navbar.style.boxShadow = 'none';
     }
 
-    scrollTimeout = window.requestAnimationFrame(() => {
-        revealElements();
-    });
+    lastScroll = currentScroll;
 });
 
 // ===========================
-// Intersection Observer for Better Performance
+// Intersection Observer for Elegant Reveals
 // ===========================
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const fadeInObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('reveal', 'active');
-            observer.unobserve(entry.target);
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            fadeInObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observe elements that should animate on scroll
+// Observe elements on page load
 document.addEventListener('DOMContentLoaded', () => {
-    const elementsToObserve = document.querySelectorAll('.product-card, .testimonial-card, .stat');
-    elementsToObserve.forEach(el => {
-        observer.observe(el);
+    // Sections to observe
+    const elementsToFade = document.querySelectorAll(`
+        .editorial-quote,
+        .heritage-text,
+        .heritage-image,
+        .craft-item,
+        .service-luxury,
+        .contact-info-luxury,
+        .contact-form-luxury
+    `);
+
+    elementsToFade.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(40px)';
+        el.style.transition = 'opacity 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1)';
+        fadeInObserver.observe(el);
     });
 });
 
 // ===========================
-// Product Card Hover Effect (Enhanced for Touch)
+// Product Image Hover Enhancement
 // ===========================
-productCards.forEach(card => {
-    // For touch devices, add a tap to view effect
-    card.addEventListener('touchstart', function() {
-        this.style.transform = 'scale(0.98)';
-    });
+const productItems = document.querySelectorAll('.product-item');
 
-    card.addEventListener('touchend', function() {
-        this.style.transform = '';
-    });
+productItems.forEach(item => {
+    const luxuryImage = item.querySelector('.luxury-image');
+
+    if (luxuryImage) {
+        // Subtle parallax effect on mouse move (desktop only)
+        if (window.innerWidth > 1024) {
+            item.addEventListener('mousemove', (e) => {
+                const rect = item.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const percentX = (x - centerX) / centerX;
+                const percentY = (y - centerY) / centerY;
+
+                const imageContent = luxuryImage.querySelector('.image-content');
+                if (imageContent) {
+                    imageContent.style.transform = `scale(1.05) translate(${percentX * 5}px, ${percentY * 5}px)`;
+                }
+            });
+
+            item.addEventListener('mouseleave', () => {
+                const imageContent = luxuryImage.querySelector('.image-content');
+                if (imageContent) {
+                    imageContent.style.transform = '';
+                }
+            });
+        }
+    }
 });
 
 // ===========================
-// Form Handling
+// Contact Form Handling
 // ===========================
 const contactForm = document.getElementById('contactForm');
-const newsletterForm = document.getElementById('newsletterForm');
 
-// Contact Form
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    // Get form data
-    const formData = new FormData(contactForm);
+        // Create elegant modal overlay
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            animation: fadeIn 0.4s ease-out;
+        `;
 
-    // Create success message
-    const successMessage = document.createElement('div');
-    successMessage.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: white;
-        padding: 40px;
-        border: 2px solid var(--primary-color);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        z-index: 10000;
-        text-align: center;
-        max-width: 90%;
-        width: 400px;
-    `;
+        modal.innerHTML = `
+            <div style="
+                background: #FFFFFF;
+                max-width: 500px;
+                width: 100%;
+                padding: 60px 50px;
+                text-align: center;
+                animation: slideUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            ">
+                <div style="
+                    width: 60px;
+                    height: 60px;
+                    border: 2px solid #C9A961;
+                    border-radius: 50%;
+                    margin: 0 auto 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: 'Playfair Display', serif;
+                    font-size: 2rem;
+                    color: #C9A961;
+                ">✓</div>
+                <h3 style="
+                    font-family: 'Playfair Display', serif;
+                    font-size: 2rem;
+                    color: #0A0A0A;
+                    margin-bottom: 15px;
+                    font-weight: 400;
+                ">Request Received</h3>
+                <p style="
+                    font-family: 'Lora', serif;
+                    font-size: 1.05rem;
+                    color: #4A4A4A;
+                    line-height: 1.8;
+                    margin-bottom: 40px;
+                ">Thank you for your interest in Maison Valmont. Our atelier team will contact you within 24 hours to schedule your private consultation.</p>
+                <button onclick="this.closest('[style*=fixed]').remove(); document.body.style.overflow = ''" style="
+                    padding: 16px 40px;
+                    background: #0A0A0A;
+                    color: #FFFFFF;
+                    border: none;
+                    font-family: 'Bodoni Moda', serif;
+                    font-size: 0.75rem;
+                    letter-spacing: 3px;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                " onmouseover="this.style.background='#C9A961'; this.style.color='#0A0A0A'"
+                   onmouseout="this.style.background='#0A0A0A'; this.style.color='#FFFFFF'">Close</button>
+            </div>
+        `;
 
-    successMessage.innerHTML = `
-        <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 15px; color: var(--secondary-color);">Thank You!</h3>
-        <p style="margin-bottom: 25px; color: var(--text-light);">We'll contact you shortly to schedule your consultation.</p>
-        <button onclick="this.parentElement.remove(); document.body.style.overflow = ''" style="padding: 12px 30px; background: var(--primary-color); color: var(--secondary-color); border: none; cursor: pointer; font-weight: 600; letter-spacing: 1px;">Close</button>
-    `;
+        // Add keyframe animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
 
-    document.body.appendChild(successMessage);
-    document.body.style.overflow = 'hidden';
+        document.body.appendChild(modal);
+        document.body.style.overflow = 'hidden';
 
-    // Reset form
-    contactForm.reset();
+        // Reset form
+        contactForm.reset();
 
-    // Auto-close after 5 seconds
-    setTimeout(() => {
-        if (document.body.contains(successMessage)) {
-            successMessage.remove();
-            document.body.style.overflow = '';
-        }
-    }, 5000);
-});
+        // Close on background click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove();
+                document.body.style.overflow = '';
+            }
+        });
 
-// Newsletter Form
-newsletterForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+        // Auto-close after 8 seconds
+        setTimeout(() => {
+            if (document.body.contains(modal)) {
+                modal.style.opacity = '0';
+                setTimeout(() => {
+                    modal.remove();
+                    document.body.style.overflow = '';
+                }, 400);
+            }
+        }, 8000);
+    });
+}
 
-    const email = newsletterForm.querySelector('input[type="email"]').value;
+// ===========================
+// Product Modal on Image Click
+// ===========================
+productItems.forEach(item => {
+    const productImage = item.querySelector('.luxury-image');
+    const productName = item.querySelector('.product-name-luxury')?.textContent || 'Luxury Gown';
+    const productPrice = item.querySelector('.product-price-luxury')?.textContent || '$0';
+    const productDesc = item.querySelector('.product-desc-luxury')?.textContent || 'Exquisite craftsmanship';
+    const productCat = item.querySelector('.product-cat')?.textContent || 'HAUTE COUTURE';
 
-    // Create success message
-    const successMessage = document.createElement('div');
-    successMessage.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: white;
-        padding: 40px;
-        border: 2px solid var(--primary-color);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        z-index: 10000;
-        text-align: center;
-        max-width: 90%;
-        width: 400px;
-    `;
+    if (productImage) {
+        productImage.style.cursor = 'pointer';
 
-    successMessage.innerHTML = `
-        <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 15px; color: var(--secondary-color);">Welcome to Our Circle!</h3>
-        <p style="margin-bottom: 25px; color: var(--text-light);">You've successfully subscribed to our newsletter.</p>
-        <button onclick="this.parentElement.remove(); document.body.style.overflow = ''" style="padding: 12px 30px; background: var(--primary-color); color: var(--secondary-color); border: none; cursor: pointer; font-weight: 600; letter-spacing: 1px;">Close</button>
-    `;
+        productImage.addEventListener('click', () => {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(20px);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                animation: fadeIn 0.4s ease-out;
+                overflow-y: auto;
+            `;
 
-    document.body.appendChild(successMessage);
-    document.body.style.overflow = 'hidden';
+            const imageHTML = productImage.querySelector('.image-content').outerHTML;
 
-    // Reset form
-    newsletterForm.reset();
+            modal.innerHTML = `
+                <div style="
+                    background: #FFFFFF;
+                    max-width: 900px;
+                    width: 100%;
+                    max-height: 90vh;
+                    overflow-y: auto;
+                    animation: slideUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+                ">
+                    <div style="position: relative;">
+                        <div style="aspect-ratio: 3/4; overflow: hidden;">
+                            ${imageHTML}
+                        </div>
+                        <button onclick="this.closest('[style*=fixed]').remove(); document.body.style.overflow = ''"
+                            style="
+                                position: absolute;
+                                top: 20px;
+                                right: 20px;
+                                width: 45px;
+                                height: 45px;
+                                background: rgba(255, 255, 255, 0.95);
+                                backdrop-filter: blur(10px);
+                                border: none;
+                                cursor: pointer;
+                                font-size: 1.5rem;
+                                color: #0A0A0A;
+                                transition: all 0.3s ease;
+                                z-index: 10;
+                            "
+                            onmouseover="this.style.background='#C9A961'; this.style.color='#FFFFFF'"
+                            onmouseout="this.style.background='rgba(255, 255, 255, 0.95)'; this.style.color='#0A0A0A'"
+                        >×</button>
+                    </div>
+                    <div style="padding: 50px 40px;">
+                        <span style="
+                            display: block;
+                            font-family: 'Bodoni Moda', serif;
+                            font-size: 0.65rem;
+                            letter-spacing: 3px;
+                            color: #8A8A8A;
+                            margin-bottom: 15px;
+                            text-transform: uppercase;
+                        ">${productCat}</span>
+                        <h2 style="
+                            font-family: 'Playfair Display', serif;
+                            font-size: clamp(2rem, 5vw, 3rem);
+                            color: #0A0A0A;
+                            margin-bottom: 15px;
+                            font-weight: 400;
+                        ">${productName}</h2>
+                        <p style="
+                            font-family: 'Playfair Display', serif;
+                            font-size: clamp(1.8rem, 4vw, 2.5rem);
+                            color: #C9A961;
+                            margin-bottom: 30px;
+                            font-weight: 500;
+                        ">${productPrice}</p>
+                        <p style="
+                            font-family: 'Lora', serif;
+                            font-size: 1.05rem;
+                            line-height: 1.9;
+                            color: #4A4A4A;
+                            margin-bottom: 40px;
+                        ">${productDesc}</p>
 
-    // Auto-close after 5 seconds
-    setTimeout(() => {
-        if (document.body.contains(successMessage)) {
-            successMessage.remove();
-            document.body.style.overflow = '';
-        }
-    }, 5000);
+                        <div style="
+                            padding: 40px 0;
+                            border-top: 1px solid rgba(0, 0, 0, 0.08);
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                            margin-bottom: 40px;
+                        ">
+                            <h3 style="
+                                font-family: 'Playfair Display', serif;
+                                font-size: 1.3rem;
+                                color: #0A0A0A;
+                                margin-bottom: 25px;
+                                font-weight: 500;
+                            ">Details</h3>
+                            <div style="display: grid; gap: 20px;">
+                                <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                                    <span style="font-family: 'Bodoni Moda', serif; font-size: 0.75rem; letter-spacing: 2px; color: #8A8A8A; text-transform: uppercase;">Composition</span>
+                                    <span style="font-family: 'Lora', serif; font-size: 0.95rem; color: #1A1A1A;">100% Silk Charmeuse</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                                    <span style="font-family: 'Bodoni Moda', serif; font-size: 0.75rem; letter-spacing: 2px; color: #8A8A8A; text-transform: uppercase;">Craftsmanship</span>
+                                    <span style="font-family: 'Lora', serif; font-size: 0.95rem; color: #1A1A1A;">100% Handmade in Paris</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                                    <span style="font-family: 'Bodoni Moda', serif; font-size: 0.75rem; letter-spacing: 2px; color: #8A8A8A; text-transform: uppercase;">Lead Time</span>
+                                    <span style="font-family: 'Lora', serif; font-size: 0.95rem; color: #1A1A1A;">12-16 Weeks</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                                    <span style="font-family: 'Bodoni Moda', serif; font-size: 0.75rem; letter-spacing: 2px; color: #8A8A8A; text-transform: uppercase;">Customization</span>
+                                    <span style="font-family: 'Lora', serif; font-size: 0.95rem; color: #1A1A1A;">Available</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="this.closest('[style*=fixed]').remove(); document.body.style.overflow = ''; document.getElementById('contactForm').scrollIntoView({ behavior: 'smooth' });"
+                            style="
+                                width: 100%;
+                                padding: 20px 50px;
+                                background: #0A0A0A;
+                                color: #FFFFFF;
+                                border: none;
+                                font-family: 'Bodoni Moda', serif;
+                                font-size: 0.75rem;
+                                letter-spacing: 3px;
+                                text-transform: uppercase;
+                                cursor: pointer;
+                                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                            "
+                            onmouseover="this.style.background='#C9A961'; this.style.color='#0A0A0A'"
+                            onmouseout="this.style.background='#0A0A0A'; this.style.color='#FFFFFF'"
+                        >Request Private Appointment</button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+            document.body.style.overflow = 'hidden';
+
+            // Close on background click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    }
 });
 
 // ===========================
-// Parallax Effect for Hero (Subtle for mobile performance)
+// Subtle Parallax on Hero
 // ===========================
 const hero = document.querySelector('.hero');
+const heroContent = document.querySelector('.hero-content');
 let ticking = false;
 
 function updateParallax() {
     const scrolled = window.pageYOffset;
-    const parallaxSpeed = 0.5;
 
     if (hero && scrolled < window.innerHeight) {
-        hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+        const parallaxSpeed = 0.3;
+        heroContent.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+        heroContent.style.opacity = 1 - (scrolled / window.innerHeight) * 0.8;
     }
 
     ticking = false;
@@ -297,179 +476,80 @@ window.addEventListener('scroll', () => {
 });
 
 // ===========================
-// Product Details Modal (Simple Implementation)
+// Luxury Loading State
 // ===========================
-const viewDetailsButtons = document.querySelectorAll('.btn-secondary');
+window.addEventListener('load', () => {
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.transition = 'opacity 0.8s ease-out';
+        document.body.style.opacity = '1';
+    }, 100);
+});
 
-viewDetailsButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
+// ===========================
+// Featured Product Button Click
+// ===========================
+const featuredButton = document.querySelector('.featured-product .btn-outline');
+if (featuredButton) {
+    featuredButton.addEventListener('click', (e) => {
         e.preventDefault();
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+}
 
-        const card = this.closest('.product-card');
-        const productName = card.querySelector('.product-name').textContent;
-        const productPrice = card.querySelector('.product-price').textContent;
-        const productDesc = card.querySelector('.product-description').textContent;
-        const productImage = card.querySelector('.image-placeholder');
-        const bgStyle = productImage.style.background;
+// ===========================
+// Console Signature
+// ===========================
+console.log('%cMAISON VALMONT', 'font-family: Cinzel, serif; font-size: 28px; font-weight: 600; color: #C9A961; letter-spacing: 4px;');
+console.log('%cPARIS · EST. 1898', 'font-family: Bodoni Moda, serif; font-size: 11px; color: #8A8A8A; letter-spacing: 3px;');
+console.log('%cWhere elegance is eternal', 'font-family: Lora, serif; font-size: 13px; color: #4A4A4A; font-style: italic; margin-top: 10px;');
 
-        // Create modal
-        const modal = document.createElement('div');
-        modal.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            animation: fadeIn 0.3s ease;
-            overflow-y: auto;
-        `;
-
-        modal.innerHTML = `
-            <div style="background: white; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; animation: slideUp 0.3s ease;">
-                <div style="position: relative;">
-                    <div style="background: ${bgStyle}; height: 400px; display: flex; align-items: center; justify-content: center;">
-                        <span style="font-family: var(--font-heading); font-size: 2.5rem; color: white; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); letter-spacing: 3px;">${productName.toUpperCase()}</span>
-                    </div>
-                    <button onclick="this.closest('[style*=fixed]').remove(); document.body.style.overflow = ''" style="position: absolute; top: 20px; right: 20px; width: 40px; height: 40px; background: white; border: none; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">×</button>
-                </div>
-                <div style="padding: 40px;">
-                    <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 10px; color: var(--secondary-color);">${productName}</h2>
-                    <p style="font-size: 2rem; color: var(--primary-color); font-family: var(--font-heading); margin-bottom: 20px; font-weight: 600;">${productPrice}</p>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 30px;">${productDesc}</p>
-
-                    <div style="margin-bottom: 30px;">
-                        <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--secondary-color);">Details</h3>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
-                                <span style="color: var(--text-light);">Material</span>
-                                <span style="font-weight: 500;">Premium Silk & Chiffon</span>
-                            </li>
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
-                                <span style="color: var(--text-light);">Craftsmanship</span>
-                                <span style="font-weight: 500;">100% Handmade</span>
-                            </li>
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
-                                <span style="color: var(--text-light);">Delivery</span>
-                                <span style="font-weight: 500;">4-6 Weeks</span>
-                            </li>
-                            <li style="padding: 10px 0; display: flex; justify-content: space-between;">
-                                <span style="color: var(--text-light);">Customization</span>
-                                <span style="font-weight: 500;">Available</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <button onclick="alert('Consultation booking feature - Coming soon!'); this.closest('[style*=fixed]').remove(); document.body.style.overflow = ''" style="width: 100%; padding: 18px; background: var(--primary-color); color: var(--secondary-color); border: 2px solid var(--primary-color); cursor: pointer; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 1rem; transition: all 0.3s;">Book Consultation</button>
-                </div>
-            </div>
-        `;
-
-        // Add modal to page
-        document.body.appendChild(modal);
-        document.body.style.overflow = 'hidden';
-
-        // Close on background click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.remove();
-                document.body.style.overflow = '';
-            }
-        });
+// ===========================
+// Disable Right Click on Images (Luxury Protection)
+// ===========================
+const luxuryImages = document.querySelectorAll('.luxury-image');
+luxuryImages.forEach(img => {
+    img.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
     });
 });
 
 // ===========================
-// Performance: Lazy Loading Images (if using real images)
+// Touch Device Enhancements
 // ===========================
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    imageObserver.unobserve(img);
-                }
-            }
-        });
-    });
+if ('ontouchstart' in window) {
+    // Add active states for touch
+    productItems.forEach(item => {
+        item.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        }, { passive: true });
 
-    // If you add real images later, add data-src attribute and observe them
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    lazyImages.forEach(img => imageObserver.observe(img));
-}
-
-// ===========================
-// Add smooth transitions to all elements
-// ===========================
-document.addEventListener('DOMContentLoaded', () => {
-    // Add reveal class to elements that should animate
-    const animatedElements = document.querySelectorAll('.product-card, .testimonial-card, .stat');
-    animatedElements.forEach(el => {
-        el.classList.add('reveal');
-    });
-});
-
-// ===========================
-// Touch Gestures for Mobile
-// ===========================
-let touchStartX = 0;
-let touchEndX = 0;
-
-document.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-
-document.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-}, { passive: true });
-
-function handleSwipe() {
-    const swipeThreshold = 50;
-    const diff = touchStartX - touchEndX;
-
-    // You can add swipe functionality here if needed
-    // For example: swipe to navigate between products
-}
-
-// ===========================
-// Console Branding
-// ===========================
-console.log('%cNOIR ÉLÉGANCE', 'font-size: 24px; font-weight: bold; color: #d4af37;');
-console.log('%cLuxury Evening Dresses', 'font-size: 14px; color: #666;');
-console.log('%cWebsite designed with passion ✨', 'font-size: 12px; color: #999;');
-
-// ===========================
-// Analytics Ready
-// ===========================
-// Track page view
-if (typeof gtag !== 'undefined') {
-    gtag('event', 'page_view', {
-        page_title: document.title,
-        page_location: window.location.href,
-        page_path: window.location.pathname
+        item.addEventListener('touchend', function() {
+            this.style.transform = '';
+        }, { passive: true });
     });
 }
 
-// Track product views
-viewDetailsButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        const productName = this.closest('.product-card').querySelector('.product-name').textContent;
+// ===========================
+// Page Transition Preparation
+// ===========================
+document.querySelectorAll('a:not([href^="#"])').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
 
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'view_item', {
-                items: [{
-                    item_name: productName
-                }]
-            });
+        // Only apply to internal links
+        if (href && !href.startsWith('http') && !href.startsWith('#')) {
+            e.preventDefault();
+
+            document.body.style.transition = 'opacity 0.4s ease-out';
+            document.body.style.opacity = '0';
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 400);
         }
     });
 });

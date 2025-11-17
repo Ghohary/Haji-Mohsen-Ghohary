@@ -3,311 +3,507 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover exquisite luxury evening dresses crafted for the most sophisticated occasions. Premium haute couture for the modern woman.">
-    <title>NOIR ÉLÉGANCE - Luxury Evening Dresses</title>
+    <meta name="description" content="Exquisite haute couture evening gowns. Timeless elegance, exceptional craftsmanship, unparalleled luxury.">
+    <title>MAISON VALMONT - Haute Couture Evening Gowns</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Bodoni+Moda:wght@400;500;600;700&family=Cinzel:wght@400;500;600&family=Lora:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="top-left">
+                <a href="#" class="top-link">Private Appointments</a>
+                <span class="separator">|</span>
+                <a href="#" class="top-link">Virtual Consultation</a>
+            </div>
+            <div class="top-right">
+                <select class="language-selector">
+                    <option>EN</option>
+                    <option>FR</option>
+                    <option>IT</option>
+                </select>
+                <span class="separator">|</span>
+                <select class="currency-selector">
+                    <option>USD</option>
+                    <option>EUR</option>
+                    <option>GBP</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="logo">NOIR ÉLÉGANCE</div>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
-                <span></span>
             </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#collection" class="nav-link">Collection</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
+
+            <div class="logo">
+                <div class="logo-main">MAISON VALMONT</div>
+                <div class="logo-sub">PARIS · EST. 1898</div>
+            </div>
+
+            <div class="nav-icons">
+                <button class="icon-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="8" cy="8" r="6"/>
+                        <path d="M13 13l6 6"/>
+                    </svg>
+                </button>
+                <button class="icon-btn" aria-label="Account">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="10" cy="6" r="4"/>
+                        <path d="M2 19c0-5 3-7 8-7s8 2 8 7"/>
+                    </svg>
+                </button>
+            </div>
         </div>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#collection" class="nav-link">Collections</a></li>
+            <li><a href="#haute-couture" class="nav-link">Haute Couture</a></li>
+            <li><a href="#heritage" class="nav-link">Heritage</a></li>
+            <li><a href="#atelier" class="nav-link">Atelier</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Video Background Effect -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1 class="hero-title fade-in">Timeless Elegance</h1>
-            <p class="hero-subtitle fade-in-delay">Luxury Evening Dresses for the Modern Woman</p>
-            <a href="#collection" class="btn-primary fade-in-delay-2">Explore Collection</a>
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-collection">AUTUMN/WINTER 2024</span>
+                <h1 class="hero-title">L'Étoile<br>Éternelle</h1>
+                <p class="hero-description">Where dreams meet destiny</p>
+                <a href="#collection" class="btn-luxury">Discover the Collection</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Editorial Introduction -->
+    <section class="editorial-intro">
+        <div class="editorial-container">
+            <div class="editorial-quote">
+                "Each gown is a love letter to elegance,<br>written in silk and whispered in diamonds."
+            </div>
+            <div class="editorial-author">— Isabelle Valmont, Creative Director</div>
         </div>
     </section>
 
     <!-- Featured Collection -->
-    <section class="featured" id="collection">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Haute Couture</span>
-                <h2 class="section-title">Our Collection</h2>
-                <p class="section-description">Each dress is a masterpiece, meticulously crafted to perfection</p>
-            </div>
+    <section class="collection" id="collection">
+        <div class="collection-header">
+            <span class="collection-season">HAUTE COUTURE 2024</span>
+            <h2 class="collection-title">The Collection</h2>
+        </div>
 
-            <!-- Filter Buttons -->
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All Dresses</button>
-                <button class="filter-btn" data-filter="gowns">Evening Gowns</button>
-                <button class="filter-btn" data-filter="cocktail">Cocktail</button>
-                <button class="filter-btn" data-filter="ball">Ball Gowns</button>
-            </div>
-
-            <!-- Product Grid -->
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <article class="product-card" data-category="gowns">
-                    <div class="product-image">
-                        <div class="image-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                            <span class="image-text">SAPPHIRE DREAM</span>
+        <!-- Large Featured Product -->
+        <article class="featured-product">
+            <div class="featured-grid">
+                <div class="featured-image">
+                    <div class="luxury-image" data-category="featured">
+                        <div class="image-overlay"></div>
+                        <div class="image-content" style="background: linear-gradient(to bottom, #2c2c2c 0%, #1a1a1a 100%);">
+                            <div class="diamond-accent"></div>
                         </div>
-                        <div class="product-badge">New</div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Sapphire Dream Gown</h3>
-                        <p class="product-description">Flowing silk evening gown with crystal embellishments</p>
-                        <p class="product-price">$2,850</p>
-                        <button class="btn-secondary">View Details</button>
+                </div>
+                <div class="featured-details">
+                    <div class="featured-info">
+                        <span class="product-category">EVENING GOWN</span>
+                        <h3 class="product-title">La Nuit Étoilée</h3>
+                        <p class="product-excerpt">A celestial masterpiece adorned with over 3,000 hand-set Swarovski crystals on Italian silk charmeuse. Inspired by the constellations above Monaco, this gown features intricate beadwork that captures the shimmer of starlight.</p>
+
+                        <div class="product-details-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Composition</span>
+                                <span class="detail-value">100% Silk Charmeuse</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Embellishment</span>
+                                <span class="detail-value">3,000+ Swarovski Crystals</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Origin</span>
+                                <span class="detail-value">Handcrafted in Paris</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Lead Time</span>
+                                <span class="detail-value">12-16 Weeks</span>
+                            </div>
+                        </div>
+
+                        <div class="product-price-section">
+                            <div class="product-price">$48,500</div>
+                            <button class="btn-outline">Request Private Appointment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Product Grid -->
+        <div class="product-collection">
+            <div class="product-grid-luxury">
+
+                <!-- Product 1 -->
+                <article class="product-item">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image" data-category="evening">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(135deg, #1a1818 0%, #2d2424 50%, #1a1818 100%);">
+                                <div class="silk-texture"></div>
+                            </div>
+                        </div>
+                        <div class="image-badge">New Arrival</div>
+                    </div>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">EVENING GOWN</span>
+                        <h3 class="product-name-luxury">Midnight Reverie</h3>
+                        <p class="product-desc-luxury">Silk organza with hand-embroidered lace</p>
+                        <div class="product-price-luxury">$32,800</div>
                     </div>
                 </article>
 
                 <!-- Product 2 -->
-                <article class="product-card" data-category="cocktail">
-                    <div class="product-image">
-                        <div class="image-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                            <span class="image-text">ROSE NOIR</span>
+                <article class="product-item">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image" data-category="cocktail">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(to bottom right, #f5f1ed 0%, #dcd0c0 50%, #c9b8a3 100%);">
+                                <div class="pearl-accent"></div>
+                            </div>
                         </div>
-                        <div class="product-badge">Featured</div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Rose Noir Cocktail</h3>
-                        <p class="product-description">Elegant velvet cocktail dress with lace details</p>
-                        <p class="product-price">$1,950</p>
-                        <button class="btn-secondary">View Details</button>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">COCKTAIL DRESS</span>
+                        <h3 class="product-name-luxury">Champagne Sonata</h3>
+                        <p class="product-desc-luxury">Mikado silk with pearl embellishments</p>
+                        <div class="product-price-luxury">$24,500</div>
                     </div>
                 </article>
 
                 <!-- Product 3 -->
-                <article class="product-card" data-category="ball">
-                    <div class="product-image">
-                        <div class="image-placeholder" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
-                            <span class="image-text">GOLDEN HOUR</span>
+                <article class="product-item">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image" data-category="ball">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: radial-gradient(ellipse at center, #3a3a52 0%, #1a1a2e 70%);">
+                                <div class="sapphire-glow"></div>
+                            </div>
                         </div>
+                        <div class="image-badge">Limited Edition</div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Golden Hour Ball Gown</h3>
-                        <p class="product-description">Luxurious satin ball gown with gold threading</p>
-                        <p class="product-price">$3,450</p>
-                        <button class="btn-secondary">View Details</button>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">BALL GOWN</span>
+                        <h3 class="product-name-luxury">Azure Symphony</h3>
+                        <p class="product-desc-luxury">Tulle and sapphire silk with crystal bodice</p>
+                        <div class="product-price-luxury">$56,000</div>
                     </div>
                 </article>
 
                 <!-- Product 4 -->
-                <article class="product-card" data-category="gowns">
-                    <div class="product-image">
-                        <div class="image-placeholder" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-                            <span class="image-text">AZURE MIST</span>
+                <article class="product-item">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image" data-category="evening">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(135deg, #d4c5b0 0%, #f0e6d6 50%, #d4c5b0 100%);">
+                                <div class="gold-shimmer"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Azure Mist Evening</h3>
-                        <p class="product-description">Chiffon masterpiece with hand-sewn sequins</p>
-                        <p class="product-price">$2,650</p>
-                        <button class="btn-secondary">View Details</button>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">EVENING GOWN</span>
+                        <h3 class="product-name-luxury">Golden Reverie</h3>
+                        <p class="product-desc-luxury">Gold lamé with Chantilly lace overlay</p>
+                        <div class="product-price-luxury">$41,200</div>
                     </div>
                 </article>
 
                 <!-- Product 5 -->
-                <article class="product-card" data-category="cocktail">
-                    <div class="product-image">
-                        <div class="image-placeholder" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
-                            <span class="image-text">BLUSH AFFAIR</span>
+                <article class="product-item">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image" data-category="cocktail">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(to bottom, #faf0f0 0%, #f5d9d9 50%, #ecc9c9 100%);">
+                                <div class="rose-petal"></div>
+                            </div>
                         </div>
-                        <div class="product-badge">Trending</div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Blush Affair</h3>
-                        <p class="product-description">Modern silhouette with vintage charm</p>
-                        <p class="product-price">$2,100</p>
-                        <button class="btn-secondary">View Details</button>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">COCKTAIL DRESS</span>
+                        <h3 class="product-name-luxury">Blush Serenade</h3>
+                        <p class="product-desc-luxury">Silk faille with rose appliqués</p>
+                        <div class="product-price-luxury">$28,900</div>
                     </div>
                 </article>
 
                 <!-- Product 6 -->
-                <article class="product-card" data-category="ball">
-                    <div class="product-image">
-                        <div class="image-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                            <span class="image-text">MIDNIGHT SKY</span>
+                <article class="product-item">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image" data-category="ball">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(135deg, #0f0f0f 0%, #2a2a2a 50%, #0f0f0f 100%);">
+                                <div class="diamond-sparkle"></div>
+                            </div>
                         </div>
+                        <div class="image-badge">Signature Piece</div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Midnight Sky Ball Gown</h3>
-                        <p class="product-description">Dramatic tulle creation with celestial beading</p>
-                        <p class="product-price">$4,200</p>
-                        <button class="btn-secondary">View Details</button>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">BALL GOWN</span>
+                        <h3 class="product-name-luxury">Noir Impérial</h3>
+                        <p class="product-desc-luxury">Velvet and satin with diamond-cut beading</p>
+                        <div class="product-price-luxury">$67,500</div>
                     </div>
                 </article>
+
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <span class="section-label">Our Story</span>
-                    <h2 class="section-title">Crafting Dreams Since 1985</h2>
-                    <p>At Noir Élégance, we believe every woman deserves to feel extraordinary. Our master artisans combine traditional haute couture techniques with contemporary design to create evening dresses that transcend trends.</p>
-                    <p>Each piece is meticulously handcrafted using the finest fabrics sourced from renowned textile houses in Paris, Milan, and Tokyo. From the first sketch to the final stitch, our commitment to perfection is unwavering.</p>
-                    <div class="stats">
-                        <div class="stat">
-                            <div class="stat-number">500+</div>
-                            <div class="stat-label">Bespoke Creations</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">38</div>
-                            <div class="stat-label">Years of Excellence</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Handcrafted</div>
-                        </div>
+    <!-- Heritage Section -->
+    <section class="heritage" id="heritage">
+        <div class="heritage-content">
+            <div class="heritage-image">
+                <div class="luxury-image heritage-img">
+                    <div class="image-content" style="background: linear-gradient(to right, #1a1a1a 0%, #2d2d2d 100%);">
+                        <div class="atelier-scene"></div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="image-placeholder" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 400px;">
-                        <span class="image-text">ARTISANAL CRAFTSMANSHIP</span>
+            </div>
+            <div class="heritage-text">
+                <span class="section-label-luxury">NOTRE HISTOIRE</span>
+                <h2 class="section-title-luxury">A Legacy of<br>Uncompromising<br>Excellence</h2>
+                <p class="heritage-description">Since 1898, Maison Valmont has been the epitome of haute couture excellence. Founded in the heart of Paris by master couturier François Valmont, our atelier has dressed royalty, celebrities, and discerning women who demand nothing but perfection.</p>
+                <p class="heritage-description">Each creation is the culmination of over 200 hours of meticulous handwork, employing techniques passed down through five generations of master artisans. We source the world's finest fabrics from Como, Lyon, and St. Gallen, ensuring that every thread embodies luxury.</p>
+                <div class="heritage-stats">
+                    <div class="stat-luxury">
+                        <div class="stat-number-luxury">1898</div>
+                        <div class="stat-label-luxury">Founded in Paris</div>
+                    </div>
+                    <div class="stat-luxury">
+                        <div class="stat-number-luxury">5</div>
+                        <div class="stat-label-luxury">Generations</div>
+                    </div>
+                    <div class="stat-luxury">
+                        <div class="stat-number-luxury">200+</div>
+                        <div class="stat-label-luxury">Hours per Gown</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">What They Say</span>
-                <h2 class="section-title">Client Stories</h2>
+    <!-- Craftsmanship Showcase -->
+    <section class="craftsmanship">
+        <div class="craft-container">
+            <div class="craft-grid">
+                <div class="craft-item">
+                    <div class="craft-image">
+                        <div class="luxury-image">
+                            <div class="image-content" style="background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);">
+                                <div class="craft-detail-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="craft-title">Couture Embroidery</h3>
+                    <p class="craft-desc">Hand-embroidered by master artisans using techniques perfected over centuries</p>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-image">
+                        <div class="luxury-image">
+                            <div class="image-content" style="background: linear-gradient(135deg, #f5f5f0 0%, #e8e8e0 100%);">
+                                <div class="craft-detail-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="craft-title">Precious Materials</h3>
+                    <p class="craft-desc">Only the finest silks, satins, and embellishments grace our creations</p>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-image">
+                        <div class="luxury-image">
+                            <div class="image-content" style="background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);">
+                                <div class="craft-detail-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="craft-title">Bespoke Tailoring</h3>
+                    <p class="craft-desc">Each gown is tailored to perfection, celebrating your unique silhouette</p>
+                </div>
             </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"The most exquisite dress I've ever worn. The attention to detail is phenomenal, and I felt like royalty at my gala."</p>
-                    <p class="testimonial-author">— Isabella M.</p>
-                    <p class="testimonial-location">New York</p>
+        </div>
+    </section>
+
+    <!-- Atelier Experience -->
+    <section class="atelier-experience" id="atelier">
+        <div class="atelier-content">
+            <div class="atelier-text-center">
+                <span class="section-label-luxury">L'ATELIER</span>
+                <h2 class="section-title-luxury centered">The Maison Valmont<br>Experience</h2>
+                <p class="atelier-intro">By private appointment only, we invite you to our Parisian atelier where your couture journey begins. Experience personalized service in an environment where luxury knows no bounds.</p>
+            </div>
+            <div class="atelier-services">
+                <div class="service-luxury">
+                    <div class="service-number">01</div>
+                    <h3 class="service-title">Private Consultation</h3>
+                    <p class="service-description">Begin with a one-on-one consultation with our creative director to discuss your vision, occasion, and style preferences in our exclusive salon.</p>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Noir Élégance transformed my vision into reality. The craftsmanship is unparalleled, and the service is exceptional."</p>
-                    <p class="testimonial-author">— Sophia L.</p>
-                    <p class="testimonial-location">London</p>
+                <div class="service-luxury">
+                    <div class="service-number">02</div>
+                    <h3 class="service-title">Bespoke Design</h3>
+                    <p class="service-description">Our master couturiers will create original sketches and select fabrics from our private collection of the world's most exquisite textiles.</p>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Pure artistry. Every stitch tells a story of passion and dedication. This is not just a dress—it's a masterpiece."</p>
-                    <p class="testimonial-author">— Olivia R.</p>
-                    <p class="testimonial-location">Paris</p>
+                <div class="service-luxury">
+                    <div class="service-number">03</div>
+                    <h3 class="service-title">Artisanal Creation</h3>
+                    <p class="service-description">Watch as your gown comes to life over multiple fittings, with each detail perfected by our master craftsmen in our Parisian atelier.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <span class="section-label">Get in Touch</span>
-                    <h2 class="section-title">Begin Your Journey</h2>
-                    <p>Schedule a private consultation with our design team to create your perfect evening dress.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div>
-                                <h4>Visit Our Atelier</h4>
-                                <p>123 Fifth Avenue, New York, NY 10001</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div>
-                                <h4>Call Us</h4>
-                                <p>+1 (555) 123-4567</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>contact@noirelegance.com</p>
-                            </div>
-                        </div>
+    <section class="contact-luxury" id="contact">
+        <div class="contact-split">
+            <div class="contact-info-luxury">
+                <span class="section-label-luxury">CONTACT</span>
+                <h2 class="section-title-luxury">Begin Your<br>Journey</h2>
+
+                <div class="contact-locations">
+                    <div class="location">
+                        <h4 class="location-city">Paris</h4>
+                        <p class="location-address">24 Place Vendôme<br>75001 Paris, France</p>
+                        <p class="location-phone">+33 1 42 86 82 00</p>
+                    </div>
+                    <div class="location">
+                        <h4 class="location-city">New York</h4>
+                        <p class="location-address">725 Fifth Avenue<br>New York, NY 10022</p>
+                        <p class="location-phone">+1 212 755 8000</p>
+                    </div>
+                    <div class="location">
+                        <h4 class="location-city">London</h4>
+                        <p class="location-address">165 New Bond Street<br>London W1S 2UE</p>
+                        <p class="location-phone">+44 20 7493 8020</p>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="tel" placeholder="Phone Number">
-                    <textarea placeholder="Tell us about your dream dress..." rows="5" required></textarea>
-                    <button type="submit" class="btn-primary">Schedule Consultation</button>
+
+                <div class="contact-hours">
+                    <h4 class="hours-title">Atelier Hours</h4>
+                    <p>Monday - Saturday: By Appointment Only<br>Sunday: Closed</p>
+                </div>
+            </div>
+
+            <div class="contact-form-luxury">
+                <h3 class="form-title">Request an Appointment</h3>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <input type="text" placeholder="First Name" required class="input-luxury">
+                        <input type="text" placeholder="Last Name" required class="input-luxury">
+                    </div>
+                    <input type="email" placeholder="Email Address" required class="input-luxury">
+                    <input type="tel" placeholder="Phone Number" class="input-luxury">
+
+                    <select class="input-luxury select-luxury" required>
+                        <option value="">Preferred Location</option>
+                        <option>Paris</option>
+                        <option>New York</option>
+                        <option>London</option>
+                        <option>Virtual Consultation</option>
+                    </select>
+
+                    <select class="input-luxury select-luxury">
+                        <option value="">Occasion</option>
+                        <option>Gala / Red Carpet</option>
+                        <option>Wedding</option>
+                        <option>Private Event</option>
+                        <option>Other</option>
+                    </select>
+
+                    <textarea placeholder="Tell us about your vision..." rows="5" required class="input-luxury textarea-luxury"></textarea>
+
+                    <button type="submit" class="btn-luxury-submit">Submit Request</button>
+
+                    <p class="form-note">A member of our team will contact you within 24 hours to confirm your appointment.</p>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container">
-            <h3>Join Our Exclusive Circle</h3>
-            <p>Be the first to discover new collections and receive styling insights</p>
-            <form class="newsletter-form" id="newsletterForm">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit" class="btn-primary">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>NOIR ÉLÉGANCE</h3>
-                    <p>Luxury evening dresses crafted for the extraordinary woman.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Instagram">Instagram</a>
-                        <a href="#" aria-label="Pinterest">Pinterest</a>
-                        <a href="#" aria-label="Facebook">Facebook</a>
+    <footer class="footer-luxury">
+        <div class="footer-main">
+            <div class="footer-grid-luxury">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="footer-logo-main">MAISON VALMONT</div>
+                        <div class="footer-logo-sub">PARIS · EST. 1898</div>
+                    </div>
+                    <p class="footer-tagline">Where elegance is eternal</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link-luxury">Instagram</a>
+                        <a href="#" class="social-link-luxury">Facebook</a>
+                        <a href="#" class="social-link-luxury">Pinterest</a>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#collection">Collection</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#">Size Guide</a></li>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Collections</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Evening Gowns</a></li>
+                        <li><a href="#">Cocktail Dresses</a></li>
+                        <li><a href="#">Ball Gowns</a></li>
+                        <li><a href="#">Bridal Couture</a></li>
+                        <li><a href="#">Accessories</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Customer Care</h4>
-                    <ul>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Care Instructions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Maison</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Heritage</a></li>
+                        <li><a href="#">Craftsmanship</a></li>
+                        <li><a href="#">Atelier Tours</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Client Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Book Appointment</a></li>
+                        <li><a href="#">Care Guide</a></li>
+                        <li><a href="#">Alterations</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Noir Élégance. All rights reserved.</p>
+        </div>
+
+        <div class="footer-bottom-luxury">
+            <div class="footer-bottom-content">
+                <p class="copyright">&copy; 2024 Maison Valmont. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator-footer">|</span>
+                    <a href="#">Terms & Conditions</a>
+                    <span class="separator-footer">|</span>
+                    <a href="#">Cookie Policy</a>
+                </div>
             </div>
         </div>
     </footer>
