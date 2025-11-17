@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Maison Valmont. Schedule your private consultation at our Paris, New York, or London atelier.">
+    <title>Contact - MAISON VALMONT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Bodoni+Moda:wght@400;500;600;700&family=Cinzel:wght@400;500;600&family=Lora:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .contact-hero {
+            padding: 180px 30px 100px;
+            background: var(--luxury-pearl);
+            text-align: center;
+        }
+        .contact-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: var(--luxury-black);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        .contact-hero p {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: var(--luxury-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="top-left">
+                <a href="contact.html" class="top-link">Private Appointments</a>
+                <span class="separator">|</span>
+                <a href="contact.html" class="top-link">Virtual Consultation</a>
+            </div>
+            <div class="top-right">
+                <select class="language-selector"><option>EN</option><option>FR</option><option>IT</option></select>
+                <span class="separator">|</span>
+                <select class="currency-selector"><option>USD</option><option>EUR</option><option>GBP</option></select>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span></button>
+            <a href="index.html" class="logo">
+                <div class="logo-main">MAISON VALMONT</div>
+                <div class="logo-sub">PARIS · EST. 1898</div>
+            </a>
+            <div class="nav-icons">
+                <button class="icon-btn" aria-label="Search"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M13 13l6 6"/></svg></button>
+                <button class="icon-btn" aria-label="Account"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="6" r="4"/><path d="M2 19c0-5 3-7 8-7s8 2 8 7"/></svg></button>
+            </div>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="collections.html" class="nav-link">Collections</a></li>
+            <li><a href="haute-couture.html" class="nav-link">Haute Couture</a></li>
+            <li><a href="heritage.html" class="nav-link">Heritage</a></li>
+            <li><a href="atelier.html" class="nav-link">Atelier</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="contact-hero">
+        <span class="page-label">GET IN TOUCH</span>
+        <h1>Contact Us</h1>
+        <p>We invite you to begin your journey with Maison Valmont. Schedule a private consultation or visit us at one of our exclusive ateliers.</p>
+    </section>
+
+    <section class="contact-luxury">
+        <div class="contact-split">
+            <div class="contact-info-luxury">
+                <span class="section-label-luxury">OUR LOCATIONS</span>
+                <h2 class="section-title-luxury">Visit Our<br>Ateliers</h2>
+
+                <div class="contact-locations">
+                    <div class="location">
+                        <h4 class="location-city">Paris</h4>
+                        <p class="location-address">24 Place Vendôme<br>75001 Paris, France</p>
+                        <p class="location-phone">+33 1 42 86 82 00</p>
+                        <p class="location-phone">paris@maisonvalmont.com</p>
+                    </div>
+                    <div class="location">
+                        <h4 class="location-city">New York</h4>
+                        <p class="location-address">725 Fifth Avenue<br>New York, NY 10022</p>
+                        <p class="location-phone">+1 212 755 8000</p>
+                        <p class="location-phone">newyork@maisonvalmont.com</p>
+                    </div>
+                    <div class="location">
+                        <h4 class="location-city">London</h4>
+                        <p class="location-address">165 New Bond Street<br>London W1S 2UE</p>
+                        <p class="location-phone">+44 20 7493 8020</p>
+                        <p class="location-phone">london@maisonvalmont.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-hours">
+                    <h4 class="hours-title">Atelier Hours</h4>
+                    <p>Monday - Friday: 10:00 AM - 6:00 PM<br>Saturday: By Appointment Only<br>Sunday: Closed</p>
+                    <p style="margin-top: 20px; font-style: italic; color: var(--luxury-light-gray);">All visits are by private appointment to ensure personalized attention.</p>
+                </div>
+            </div>
+
+            <div class="contact-form-luxury">
+                <h3 class="form-title">Request an Appointment</h3>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <input type="text" placeholder="First Name" required class="input-luxury" name="firstName">
+                        <input type="text" placeholder="Last Name" required class="input-luxury" name="lastName">
+                    </div>
+                    <input type="email" placeholder="Email Address" required class="input-luxury" name="email">
+                    <input type="tel" placeholder="Phone Number" class="input-luxury" name="phone">
+
+                    <select class="input-luxury select-luxury" required name="location">
+                        <option value="">Preferred Location</option>
+                        <option>Paris</option>
+                        <option>New York</option>
+                        <option>London</option>
+                        <option>Virtual Consultation</option>
+                    </select>
+
+                    <select class="input-luxury select-luxury" name="occasion">
+                        <option value="">Occasion (Optional)</option>
+                        <option>Gala / Red Carpet</option>
+                        <option>Wedding / Bridal</option>
+                        <option>Private Event</option>
+                        <option>Opera / Theatre</option>
+                        <option>Other</option>
+                    </select>
+
+                    <select class="input-luxury select-luxury" name="interest">
+                        <option value="">Area of Interest</option>
+                        <option>Ready-to-Wear Collection</option>
+                        <option>Bespoke Haute Couture</option>
+                        <option>Bridal Couture</option>
+                        <option>Atelier Tour</option>
+                        <option>General Inquiry</option>
+                    </select>
+
+                    <textarea placeholder="Tell us about your vision and any specific requirements..." rows="5" required class="input-luxury textarea-luxury" name="message"></textarea>
+
+                    <button type="submit" class="btn-luxury-submit">Submit Request</button>
+
+                    <p class="form-note">A member of our atelier team will contact you within 24 hours to confirm your appointment and discuss your requirements in detail.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="editorial-intro" style="padding: 100px 30px; background: var(--luxury-black);">
+        <div class="editorial-container">
+            <div class="editorial-quote" style="color: white;">"We look forward to welcoming you to our world,<br>where your dreams become reality."</div>
+            <div class="editorial-author" style="color: var(--luxury-gold);">— The Maison Valmont Team</div>
+        </div>
+    </section>
+
+    <footer class="footer-luxury">
+        <div class="footer-main">
+            <div class="footer-grid-luxury">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="footer-logo-main">MAISON VALMONT</div>
+                        <div class="footer-logo-sub">PARIS · EST. 1898</div>
+                    </div>
+                    <p class="footer-tagline">Where elegance is eternal</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link-luxury">Instagram</a>
+                        <a href="#" class="social-link-luxury">Facebook</a>
+                        <a href="#" class="social-link-luxury">Pinterest</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Collections</h4>
+                    <ul class="footer-links">
+                        <li><a href="collections.html">Evening Gowns</a></li>
+                        <li><a href="collections.html">Cocktail Dresses</a></li>
+                        <li><a href="collections.html">Ball Gowns</a></li>
+                        <li><a href="haute-couture.html">Bridal Couture</a></li>
+                        <li><a href="atelier.html">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Maison</h4>
+                    <ul class="footer-links">
+                        <li><a href="heritage.html">Our Heritage</a></li>
+                        <li><a href="heritage.html">Craftsmanship</a></li>
+                        <li><a href="atelier.html">Atelier Tours</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Client Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Book Appointment</a></li>
+                        <li><a href="#">Care Guide</a></li>
+                        <li><a href="#">Alterations</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-luxury">
+            <div class="footer-bottom-content">
+                <p class="copyright">&copy; 2024 Maison Valmont. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator-footer">|</span>
+                    <a href="#">Terms & Conditions</a>
+                    <span class="separator-footer">|</span>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="common.js"></script>
+</body>
+</html>

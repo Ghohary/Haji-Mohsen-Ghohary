@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our exclusive collection of haute couture evening gowns. Each piece is a masterpiece of craftsmanship and elegance.">
+    <title>Collections - MAISON VALMONT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Bodoni+Moda:wght@400;500;600;700&family=Cinzel:wght@400;500;600&family=Lora:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .page-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #2a2a2a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 50%, rgba(201, 169, 97, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(201, 169, 97, 0.05) 0%, transparent 50%);
+            mix-blend-mode: screen;
+        }
+
+        .page-header {
+            text-align: center;
+            color: white;
+            padding: 0 30px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .page-label {
+            font-family: var(--font-accent);
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            color: var(--luxury-gold);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 400;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .page-description {
+            font-family: var(--font-body);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .collection-controls {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 80px 30px 40px;
+        }
+
+        .filter-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .filter-group {
+            text-align: center;
+        }
+
+        .filter-label {
+            font-family: var(--font-accent);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--luxury-light-gray);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .filter-buttons-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .filter-btn-luxury {
+            padding: 14px 30px;
+            background: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            color: var(--luxury-charcoal);
+            font-family: var(--font-accent);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-btn-luxury:hover,
+        .filter-btn-luxury.active {
+            background: var(--luxury-black);
+            color: white;
+            border-color: var(--luxury-black);
+        }
+
+        .collection-count {
+            text-align: center;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--luxury-light-gray);
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .filter-section {
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            .filter-group {
+                text-align: left;
+            }
+
+            .filter-buttons-row {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="top-left">
+                <a href="contact.html" class="top-link">Private Appointments</a>
+                <span class="separator">|</span>
+                <a href="contact.html" class="top-link">Virtual Consultation</a>
+            </div>
+            <div class="top-right">
+                <select class="language-selector">
+                    <option>EN</option>
+                    <option>FR</option>
+                    <option>IT</option>
+                </select>
+                <span class="separator">|</span>
+                <select class="currency-selector">
+                    <option>USD</option>
+                    <option>EUR</option>
+                    <option>GBP</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="index.html" class="logo">
+                <div class="logo-main">MAISON VALMONT</div>
+                <div class="logo-sub">PARIS · EST. 1898</div>
+            </a>
+
+            <div class="nav-icons">
+                <button class="icon-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="8" cy="8" r="6"/>
+                        <path d="M13 13l6 6"/>
+                    </svg>
+                </button>
+                <button class="icon-btn" aria-label="Account">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="10" cy="6" r="4"/>
+                        <path d="M2 19c0-5 3-7 8-7s8 2 8 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="collections.html" class="nav-link">Collections</a></li>
+            <li><a href="haute-couture.html" class="nav-link">Haute Couture</a></li>
+            <li><a href="heritage.html" class="nav-link">Heritage</a></li>
+            <li><a href="atelier.html" class="nav-link">Atelier</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-header">
+            <span class="page-label">AUTUMN/WINTER 2024</span>
+            <h1 class="page-title">The Collection</h1>
+            <p class="page-description">Each gown is a masterpiece of artisanal craftsmanship, meticulously created by our master couturiers in Paris.</p>
+        </div>
+    </section>
+
+    <!-- Collection Controls -->
+    <div class="collection-controls">
+        <div class="filter-section">
+            <div class="filter-group">
+                <span class="filter-label">Category</span>
+                <div class="filter-buttons-row">
+                    <button class="filter-btn-luxury active" data-filter="all">All Gowns</button>
+                    <button class="filter-btn-luxury" data-filter="evening">Evening Gowns</button>
+                    <button class="filter-btn-luxury" data-filter="cocktail">Cocktail</button>
+                    <button class="filter-btn-luxury" data-filter="ball">Ball Gowns</button>
+                </div>
+            </div>
+        </div>
+        <div class="collection-count" id="collectionCount">Showing <span id="count">9</span> masterpieces</div>
+    </div>
+
+    <!-- Product Collection -->
+    <section class="collection" style="padding-top: 0;">
+        <div class="product-collection">
+            <div class="product-grid-luxury" id="productGrid">
+
+                <!-- Product 1 -->
+                <article class="product-item" data-category="evening" data-price="32800">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(135deg, #1a1818 0%, #2d2424 50%, #1a1818 100%);">
+                                <div class="silk-texture"></div>
+                            </div>
+                        </div>
+                        <div class="image-badge">New Arrival</div>
+                    </div>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">EVENING GOWN</span>
+                        <h3 class="product-name-luxury">Midnight Reverie</h3>
+                        <p class="product-desc-luxury">Silk organza with hand-embroidered lace</p>
+                        <div class="product-price-luxury">$32,800</div>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-item" data-category="cocktail" data-price="24500">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(to bottom right, #f5f1ed 0%, #dcd0c0 50%, #c9b8a3 100%);">
+                                <div class="pearl-accent"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">COCKTAIL DRESS</span>
+                        <h3 class="product-name-luxury">Champagne Sonata</h3>
+                        <p class="product-desc-luxury">Mikado silk with pearl embellishments</p>
+                        <div class="product-price-luxury">$24,500</div>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-item" data-category="ball" data-price="56000">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: radial-gradient(ellipse at center, #3a3a52 0%, #1a1a2e 70%);">
+                                <div class="sapphire-glow"></div>
+                            </div>
+                        </div>
+                        <div class="image-badge">Limited Edition</div>
+                    </div>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">BALL GOWN</span>
+                        <h3 class="product-name-luxury">Azure Symphony</h3>
+                        <p class="product-desc-luxury">Tulle and sapphire silk with crystal bodice</p>
+                        <div class="product-price-luxury">$56,000</div>
+                    </div>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-item" data-category="evening" data-price="41200">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(135deg, #d4c5b0 0%, #f0e6d6 50%, #d4c5b0 100%);">
+                                <div class="gold-shimmer"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">EVENING GOWN</span>
+                        <h3 class="product-name-luxury">Golden Reverie</h3>
+                        <p class="product-desc-luxury">Gold lamé with Chantilly lace overlay</p>
+                        <div class="product-price-luxury">$41,200</div>
+                    </div>
+                </article>
+
+                <!-- Product 5 -->
+                <article class="product-item" data-category="cocktail" data-price="28900">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(to bottom, #faf0f0 0%, #f5d9d9 50%, #ecc9c9 100%);">
+                                <div class="rose-petal"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">COCKTAIL DRESS</span>
+                        <h3 class="product-name-luxury">Blush Serenade</h3>
+                        <p class="product-desc-luxury">Silk faille with rose appliqués</p>
+                        <div class="product-price-luxury">$28,900</div>
+                    </div>
+                </article>
+
+                <!-- Product 6 -->
+                <article class="product-item" data-category="ball" data-price="67500">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(135deg, #0f0f0f 0%, #2a2a2a 50%, #0f0f0f 100%);">
+                                <div class="diamond-sparkle"></div>
+                            </div>
+                        </div>
+                        <div class="image-badge">Signature Piece</div>
+                    </div>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">BALL GOWN</span>
+                        <h3 class="product-name-luxury">Noir Impérial</h3>
+                        <p class="product-desc-luxury">Velvet and satin with diamond-cut beading</p>
+                        <div class="product-price-luxury">$67,500</div>
+                    </div>
+                </article>
+
+                <!-- Product 7 -->
+                <article class="product-item" data-category="evening" data-price="38500">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(to bottom, #e8ddd5 0%, #c9b8a8 50%, #a89584 100%);">
+                                <div class="pearl-accent"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">EVENING GOWN</span>
+                        <h3 class="product-name-luxury">Pearl Cascade</h3>
+                        <p class="product-desc-luxury">Duchess satin with cascading pearl details</p>
+                        <div class="product-price-luxury">$38,500</div>
+                    </div>
+                </article>
+
+                <!-- Product 8 -->
+                <article class="product-item" data-category="cocktail" data-price="26800">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(135deg, #2d1f1f 0%, #1a0f0f 50%, #2d1f1f 100%);">
+                                <div class="silk-texture"></div>
+                            </div>
+                        </div>
+                        <div class="image-badge">New Arrival</div>
+                    </div>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">COCKTAIL DRESS</span>
+                        <h3 class="product-name-luxury">Bordeaux Dreams</h3>
+                        <p class="product-desc-luxury">Silk crepe with velvet trim</p>
+                        <div class="product-price-luxury">$26,800</div>
+                    </div>
+                </article>
+
+                <!-- Product 9 -->
+                <article class="product-item" data-category="ball" data-price="59500">
+                    <div class="product-image-wrapper">
+                        <div class="luxury-image">
+                            <div class="image-overlay"></div>
+                            <div class="image-content" style="background: linear-gradient(to bottom, #f8f5f2 0%, #e8dfd8 50%, #d8cfc8 100%);">
+                                <div class="gold-shimmer"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-details-luxury">
+                        <span class="product-cat">BALL GOWN</span>
+                        <h3 class="product-name-luxury">Ivory Majesty</h3>
+                        <p class="product-desc-luxury">Silk mikado with sculptural draping</p>
+                        <div class="product-price-luxury">$59,500</div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="editorial-intro" style="padding: 100px 30px;">
+        <div class="editorial-container">
+            <div class="editorial-quote" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">
+                "Each gown tells a story of exceptional craftsmanship,<br>destined to become part of your legacy."
+            </div>
+            <div style="margin-top: 40px;">
+                <a href="contact.html" class="btn-outline" style="display: inline-block;">Schedule Private Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-luxury">
+        <div class="footer-main">
+            <div class="footer-grid-luxury">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="footer-logo-main">MAISON VALMONT</div>
+                        <div class="footer-logo-sub">PARIS · EST. 1898</div>
+                    </div>
+                    <p class="footer-tagline">Where elegance is eternal</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link-luxury">Instagram</a>
+                        <a href="#" class="social-link-luxury">Facebook</a>
+                        <a href="#" class="social-link-luxury">Pinterest</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Collections</h4>
+                    <ul class="footer-links">
+                        <li><a href="collections.html">Evening Gowns</a></li>
+                        <li><a href="collections.html">Cocktail Dresses</a></li>
+                        <li><a href="collections.html">Ball Gowns</a></li>
+                        <li><a href="haute-couture.html">Bridal Couture</a></li>
+                        <li><a href="atelier.html">Accessories</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Maison</h4>
+                    <ul class="footer-links">
+                        <li><a href="heritage.html">Our Heritage</a></li>
+                        <li><a href="heritage.html">Craftsmanship</a></li>
+                        <li><a href="atelier.html">Atelier Tours</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Client Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Book Appointment</a></li>
+                        <li><a href="#">Care Guide</a></li>
+                        <li><a href="#">Alterations</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-luxury">
+            <div class="footer-bottom-content">
+                <p class="copyright">&copy; 2024 Maison Valmont. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator-footer">|</span>
+                    <a href="#">Terms & Conditions</a>
+                    <span class="separator-footer">|</span>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="common.js"></script>
+    <script>
+        // Product Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn-luxury');
+        const productItems = document.querySelectorAll('.product-item');
+        const countElement = document.getElementById('count');
+
+        function updateCount() {
+            const visibleProducts = document.querySelectorAll('.product-item:not([style*="display: none"])').length;
+            countElement.textContent = visibleProducts;
+        }
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                productItems.forEach(card => {
+                    const category = card.getAttribute('data-category');
+
+                    if (filterValue === 'all' || category === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+
+                updateCount();
+            });
+        });
+
+        // Product Modal on Image Click
+        productItems.forEach(item => {
+            const productImage = item.querySelector('.luxury-image');
+            const productName = item.querySelector('.product-name-luxury')?.textContent || 'Luxury Gown';
+            const productPrice = item.querySelector('.product-price-luxury')?.textContent || '$0';
+            const productDesc = item.querySelector('.product-desc-luxury')?.textContent || 'Exquisite craftsmanship';
+            const productCat = item.querySelector('.product-cat')?.textContent || 'HAUTE COUTURE';
+
+            if (productImage) {
+                productImage.style.cursor = 'pointer';
+
+                productImage.addEventListener('click', () => {
+                    const modal = document.createElement('div');
+                    modal.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(10, 10, 10, 0.95);
+                        backdrop-filter: blur(20px);
+                        z-index: 10000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 20px;
+                        animation: fadeIn 0.4s ease-out;
+                        overflow-y: auto;
+                    `;
+
+                    const imageHTML = productImage.querySelector('.image-content').outerHTML;
+
+                    modal.innerHTML = `
+                        <div style="
+                            background: #FFFFFF;
+                            max-width: 900px;
+                            width: 100%;
+                            max-height: 90vh;
+                            overflow-y: auto;
+                            animation: slideUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+                        ">
+                            <div style="position: relative;">
+                                <div style="aspect-ratio: 3/4; overflow: hidden;">
+                                    ${imageHTML}
+                                </div>
+                                <button onclick="this.closest('[style*=fixed]').remove(); document.body.style.overflow = ''"
+                                    style="
+                                        position: absolute;
+                                        top: 20px;
+                                        right: 20px;
+                                        width: 45px;
+                                        height: 45px;
+                                        background: rgba(255, 255, 255, 0.95);
+                                        backdrop-filter: blur(10px);
+                                        border: none;
+                                        cursor: pointer;
+                                        font-size: 1.5rem;
+                                        color: #0A0A0A;
+                                        transition: all 0.3s ease;
+                                        z-index: 10;
+                                    "
+                                    onmouseover="this.style.background='#C9A961'; this.style.color='#FFFFFF'"
+                                    onmouseout="this.style.background='rgba(255, 255, 255, 0.95)'; this.style.color='#0A0A0A'"
+                                >×</button>
+                            </div>
+                            <div style="padding: 50px 40px;">
+                                <span style="
+                                    display: block;
+                                    font-family: 'Bodoni Moda', serif;
+                                    font-size: 0.65rem;
+                                    letter-spacing: 3px;
+                                    color: #8A8A8A;
+                                    margin-bottom: 15px;
+                                    text-transform: uppercase;
+                                ">${productCat}</span>
+                                <h2 style="
+                                    font-family: 'Playfair Display', serif;
+                                    font-size: clamp(2rem, 5vw, 3rem);
+                                    color: #0A0A0A;
+                                    margin-bottom: 15px;
+                                    font-weight: 400;
+                                ">${productName}</h2>
+                                <p style="
+                                    font-family: 'Playfair Display', serif;
+                                    font-size: clamp(1.8rem, 4vw, 2.5rem);
+                                    color: #C9A961;
+                                    margin-bottom: 30px;
+                                    font-weight: 500;
+                                ">${productPrice}</p>
+                                <p style="
+                                    font-family: 'Lora', serif;
+                                    font-size: 1.05rem;
+                                    line-height: 1.9;
+                                    color: #4A4A4A;
+                                    margin-bottom: 40px;
+                                ">${productDesc}</p>
+
+                                <div style="
+                                    padding: 40px 0;
+                                    border-top: 1px solid rgba(0, 0, 0, 0.08);
+                                    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                                    margin-bottom: 40px;
+                                ">
+                                    <h3 style="
+                                        font-family: 'Playfair Display', serif;
+                                        font-size: 1.3rem;
+                                        color: #0A0A0A;
+                                        margin-bottom: 25px;
+                                        font-weight: 500;
+                                    ">Details</h3>
+                                    <div style="display: grid; gap: 20px;">
+                                        <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                                            <span style="font-family: 'Bodoni Moda', serif; font-size: 0.75rem; letter-spacing: 2px; color: #8A8A8A; text-transform: uppercase;">Composition</span>
+                                            <span style="font-family: 'Lora', serif; font-size: 0.95rem; color: #1A1A1A;">100% Silk Charmeuse</span>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                                            <span style="font-family: 'Bodoni Moda', serif; font-size: 0.75rem; letter-spacing: 2px; color: #8A8A8A; text-transform: uppercase;">Craftsmanship</span>
+                                            <span style="font-family: 'Lora', serif; font-size: 0.95rem; color: #1A1A1A;">100% Handmade in Paris</span>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                                            <span style="font-family: 'Bodoni Moda', serif; font-size: 0.75rem; letter-spacing: 2px; color: #8A8A8A; text-transform: uppercase;">Lead Time</span>
+                                            <span style="font-family: 'Lora', serif; font-size: 0.95rem; color: #1A1A1A;">12-16 Weeks</span>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                                            <span style="font-family: 'Bodoni Moda', serif; font-size: 0.75rem; letter-spacing: 2px; color: #8A8A8A; text-transform: uppercase;">Customization</span>
+                                            <span style="font-family: 'Lora', serif; font-size: 0.95rem; color: #1A1A1A;">Available</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a href="contact.html" onclick="this.closest('[style*=fixed]').remove(); document.body.style.overflow = '';"
+                                    style="
+                                        display: block;
+                                        width: 100%;
+                                        padding: 20px 50px;
+                                        background: #0A0A0A;
+                                        color: #FFFFFF;
+                                        text-align: center;
+                                        text-decoration: none;
+                                        font-family: 'Bodoni Moda', serif;
+                                        font-size: 0.75rem;
+                                        letter-spacing: 3px;
+                                        text-transform: uppercase;
+                                        cursor: pointer;
+                                        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                                    "
+                                    onmouseover="this.style.background='#C9A961'; this.style.color='#0A0A0A'"
+                                    onmouseout="this.style.background='#0A0A0A'; this.style.color='#FFFFFF'"
+                                >Request Private Appointment</a>
+                            </div>
+                        </div>
+                    `;
+
+                    document.body.appendChild(modal);
+                    document.body.style.overflow = 'hidden';
+
+                    // Close on background click
+                    modal.addEventListener('click', (e) => {
+                        if (e.target === modal) {
+                            modal.remove();
+                            document.body.style.overflow = '';
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
