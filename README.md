@@ -8,11 +8,15 @@ This website is deployed on multiple platforms:
 - **Vercel**: Automatic deployment from this repository
 - **GitHub Pages**: Available via GitHub Actions workflow
 
+**Last Updated:** November 17, 2025 - 12:27 UTC
+
 Latest deployment includes:
 - ✅ 22 fully functional pages
 - ✅ Fully responsive design (mobile, tablet, desktop)
 - ✅ Component-based header/footer system
 - ✅ Brown/gold/beige/nude luxury color palette
+- ✅ Fixed hamburger menu (3-line icon with X animation)
+- ✅ Enhanced header icons (search & account)
 
 ## Design Philosophy
 
