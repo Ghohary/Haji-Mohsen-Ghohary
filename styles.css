@@ -4,16 +4,25 @@
    =========================== */
 
 :root {
-    /* Refined Luxury Color Palette */
-    --luxury-gold: #C9A961;
-    --luxury-dark-gold: #B4964F;
-    --luxury-black: #0A0A0A;
-    --luxury-charcoal: #1A1A1A;
-    --luxury-gray: #4A4A4A;
-    --luxury-light-gray: #8A8A8A;
-    --luxury-cream: #FAF8F5;
+    /* Brown, Gold, Beige, Nude & White Luxury Palette */
+    --luxury-gold: #D4AF37;
+    --luxury-dark-gold: #B8941E;
+    --luxury-brown: #5C4033;
+    --luxury-rich-brown: #6B4423;
+    --luxury-chocolate: #3E2723;
+    --luxury-beige: #D2B48C;
+    --luxury-light-beige: #E8D5C4;
+    --luxury-nude: #F5E6D3;
+    --luxury-cream: #FFF8DC;
     --luxury-white: #FFFFFF;
-    --luxury-pearl: #F5F3F0;
+    --luxury-pearl: #FAF0E6;
+    --luxury-warm-white: #FFFAF0;
+
+    /* Legacy mappings for compatibility */
+    --luxury-black: #3E2723;
+    --luxury-charcoal: #5C4033;
+    --luxury-gray: #8B7355;
+    --luxury-light-gray: #A68A6D;
     --luxury-champagne: #E8D5C4;
 
     /* Refined Typography */
@@ -84,8 +93,8 @@ button {
    =========================== */
 
 .top-bar {
-    background: var(--luxury-black);
-    color: var(--luxury-pearl);
+    background: var(--luxury-chocolate);
+    color: var(--luxury-cream);
     padding: 8px 0;
     font-size: 0.7rem;
     letter-spacing: 1.5px;
@@ -110,7 +119,7 @@ button {
 }
 
 .top-link {
-    color: var(--luxury-pearl);
+    color: var(--luxury-cream);
     font-weight: 400;
 }
 
@@ -125,7 +134,7 @@ button {
 .language-selector,
 .currency-selector {
     background: transparent;
-    color: var(--luxury-pearl);
+    color: var(--luxury-cream);
     border: none;
     font-family: var(--font-accent);
     font-size: 0.7rem;
@@ -171,7 +180,7 @@ button {
 .menu-toggle span {
     width: 28px;
     height: 1px;
-    background: var(--luxury-black);
+    background: var(--luxury-brown);
     transition: var(--transition-smooth);
 }
 
@@ -198,7 +207,7 @@ button {
     font-size: clamp(1rem, 3vw, 1.3rem);
     font-weight: 600;
     letter-spacing: 4px;
-    color: var(--luxury-black);
+    color: var(--luxury-brown);
 }
 
 .logo-sub {
@@ -215,7 +224,7 @@ button {
 }
 
 .icon-btn {
-    color: var(--luxury-black);
+    color: var(--luxury-brown);
     transition: var(--transition-smooth);
     padding: 5px;
 }
@@ -295,7 +304,7 @@ button {
     width: 100%;
     height: 100%;
     background:
-        linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #2a2a2a 100%);
+        linear-gradient(135deg, #6B4423 0%, #5C4033 50%, #3E2723 100%);
     animation: heroShimmer 20s ease-in-out infinite;
 }
 
@@ -421,7 +430,7 @@ button {
 }
 
 .btn-luxury:hover {
-    color: var(--luxury-black);
+    color: var(--luxury-brown);
     border-color: var(--luxury-gold);
 }
 
@@ -432,8 +441,8 @@ button {
 .btn-outline {
     padding: 16px 40px;
     background: transparent;
-    color: var(--luxury-charcoal);
-    border: 1px solid var(--luxury-charcoal);
+    color: var(--luxury-brown);
+    border: 1px solid var(--luxury-brown);
     font-family: var(--font-accent);
     font-size: 0.7rem;
     letter-spacing: 2.5px;
@@ -442,7 +451,7 @@ button {
 }
 
 .btn-outline:hover {
-    background: var(--luxury-black);
+    background: var(--luxury-gold);
     color: var(--luxury-white);
 }
 
@@ -922,8 +931,8 @@ button {
 
 .atelier-experience {
     padding: 150px 30px;
-    background: var(--luxury-black);
-    color: var(--luxury-pearl);
+    background: var(--luxury-chocolate);
+    color: var(--luxury-cream);
 }
 
 .atelier-content {
@@ -1111,7 +1120,7 @@ button {
 
 .btn-luxury-submit {
     padding: 20px 50px;
-    background: var(--luxury-black);
+    background: var(--luxury-brown);
     color: var(--luxury-white);
     font-family: var(--font-accent);
     font-size: 0.75rem;
@@ -1123,7 +1132,7 @@ button {
 
 .btn-luxury-submit:hover {
     background: var(--luxury-gold);
-    color: var(--luxury-black);
+    color: var(--luxury-white);
 }
 
 .form-note {

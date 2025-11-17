@@ -195,7 +195,7 @@ if (contactForm) {
                 <div style="
                     width: 60px;
                     height: 60px;
-                    border: 2px solid #C9A961;
+                    border: 2px solid #D4AF37;
                     border-radius: 50%;
                     margin: 0 auto 30px;
                     display: flex;
@@ -203,12 +203,12 @@ if (contactForm) {
                     justify-content: center;
                     font-family: 'Playfair Display', serif;
                     font-size: 2rem;
-                    color: #C9A961;
+                    color: #D4AF37;
                 ">✓</div>
                 <h3 style="
                     font-family: 'Playfair Display', serif;
                     font-size: 2rem;
-                    color: #0A0A0A;
+                    color: #5C4033;
                     margin-bottom: 15px;
                     font-weight: 400;
                 ">Request Received</h3>
@@ -218,10 +218,10 @@ if (contactForm) {
                     color: #4A4A4A;
                     line-height: 1.8;
                     margin-bottom: 40px;
-                ">Thank you for your interest in Maison Valmont. Our atelier team will contact you within 24 hours to schedule your private consultation.</p>
+                ">Thank you for your interest in GHOHARY. Our atelier team will contact you within 24 hours to schedule your private consultation.</p>
                 <button onclick="this.closest('[style*=fixed]').remove(); document.body.style.overflow = ''" style="
                     padding: 16px 40px;
-                    background: #0A0A0A;
+                    background: #5C4033;
                     color: #FFFFFF;
                     border: none;
                     font-family: 'Bodoni Moda', serif;
@@ -230,8 +230,8 @@ if (contactForm) {
                     text-transform: uppercase;
                     cursor: pointer;
                     transition: all 0.3s ease;
-                " onmouseover="this.style.background='#C9A961'; this.style.color='#0A0A0A'"
-                   onmouseout="this.style.background='#0A0A0A'; this.style.color='#FFFFFF'">Close</button>
+                " onmouseover="this.style.background='#D4AF37'; this.style.color='#FFFFFF'"
+                   onmouseout="this.style.background='#5C4033'; this.style.color='#FFFFFF'">Close</button>
             </div>
         `;
 
@@ -341,12 +341,12 @@ productItems.forEach(item => {
                                 border: none;
                                 cursor: pointer;
                                 font-size: 1.5rem;
-                                color: #0A0A0A;
+                                color: #5C4033;
                                 transition: all 0.3s ease;
                                 z-index: 10;
                             "
-                            onmouseover="this.style.background='#C9A961'; this.style.color='#FFFFFF'"
-                            onmouseout="this.style.background='rgba(255, 255, 255, 0.95)'; this.style.color='#0A0A0A'"
+                            onmouseover="this.style.background='#D4AF37'; this.style.color='#FFFFFF'"
+                            onmouseout="this.style.background='rgba(255, 255, 255, 0.95)'; this.style.color='#5C4033'"
                         >×</button>
                     </div>
                     <div style="padding: 50px 40px;">
@@ -355,21 +355,21 @@ productItems.forEach(item => {
                             font-family: 'Bodoni Moda', serif;
                             font-size: 0.65rem;
                             letter-spacing: 3px;
-                            color: #8A8A8A;
+                            color: #8B7355;
                             margin-bottom: 15px;
                             text-transform: uppercase;
                         ">${productCat}</span>
                         <h2 style="
                             font-family: 'Playfair Display', serif;
                             font-size: clamp(2rem, 5vw, 3rem);
-                            color: #0A0A0A;
+                            color: #5C4033;
                             margin-bottom: 15px;
                             font-weight: 400;
                         ">${productName}</h2>
                         <p style="
                             font-family: 'Playfair Display', serif;
                             font-size: clamp(1.8rem, 4vw, 2.5rem);
-                            color: #C9A961;
+                            color: #D4AF37;
                             margin-bottom: 30px;
                             font-weight: 500;
                         ">${productPrice}</p>
@@ -390,7 +390,7 @@ productItems.forEach(item => {
                             <h3 style="
                                 font-family: 'Playfair Display', serif;
                                 font-size: 1.3rem;
-                                color: #0A0A0A;
+                                color: #5C4033;
                                 margin-bottom: 25px;
                                 font-weight: 500;
                             ">Details</h3>
@@ -418,7 +418,7 @@ productItems.forEach(item => {
                             style="
                                 width: 100%;
                                 padding: 20px 50px;
-                                background: #0A0A0A;
+                                background: #5C4033;
                                 color: #FFFFFF;
                                 border: none;
                                 font-family: 'Bodoni Moda', serif;
@@ -428,8 +428,8 @@ productItems.forEach(item => {
                                 cursor: pointer;
                                 transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
                             "
-                            onmouseover="this.style.background='#C9A961'; this.style.color='#0A0A0A'"
-                            onmouseout="this.style.background='#0A0A0A'; this.style.color='#FFFFFF'"
+                            onmouseover="this.style.background='#D4AF37'; this.style.color='#FFFFFF'"
+                            onmouseout="this.style.background='#5C4033'; this.style.color='#FFFFFF'"
                         >Request Private Appointment</button>
                     </div>
                 </div>
@@ -503,9 +503,9 @@ if (featuredButton) {
 // ===========================
 // Console Signature
 // ===========================
-console.log('%cMAISON VALMONT', 'font-family: Cinzel, serif; font-size: 28px; font-weight: 600; color: #C9A961; letter-spacing: 4px;');
-console.log('%cPARIS · EST. 1898', 'font-family: Bodoni Moda, serif; font-size: 11px; color: #8A8A8A; letter-spacing: 3px;');
-console.log('%cWhere elegance is eternal', 'font-family: Lora, serif; font-size: 13px; color: #4A4A4A; font-style: italic; margin-top: 10px;');
+console.log('%cGHOHARY', 'font-family: Cinzel, serif; font-size: 28px; font-weight: 600; color: #D4AF37; letter-spacing: 4px;');
+console.log('%cPARIS · EST. 1898', 'font-family: Bodoni Moda, serif; font-size: 11px; color: #8B7355; letter-spacing: 3px;');
+console.log('%cWhere elegance is eternal', 'font-family: Lora, serif; font-size: 13px; color: #6B4423; font-style: italic; margin-top: 10px;');
 
 // ===========================
 // Disable Right Click on Images (Luxury Protection)

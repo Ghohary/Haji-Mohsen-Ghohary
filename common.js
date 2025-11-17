@@ -162,7 +162,7 @@ contactForms.forEach(form => {
                 <div style="
                     width: 60px;
                     height: 60px;
-                    border: 2px solid #C9A961;
+                    border: 2px solid #D4AF37;
                     border-radius: 50%;
                     margin: 0 auto 30px;
                     display: flex;
@@ -170,12 +170,12 @@ contactForms.forEach(form => {
                     justify-content: center;
                     font-family: 'Playfair Display', serif;
                     font-size: 2rem;
-                    color: #C9A961;
+                    color: #D4AF37;
                 ">✓</div>
                 <h3 style="
                     font-family: 'Playfair Display', serif;
                     font-size: 2rem;
-                    color: #0A0A0A;
+                    color: #5C4033;
                     margin-bottom: 15px;
                     font-weight: 400;
                 ">Request Received</h3>
@@ -185,10 +185,10 @@ contactForms.forEach(form => {
                     color: #4A4A4A;
                     line-height: 1.8;
                     margin-bottom: 40px;
-                ">Thank you for your interest in Maison Valmont. Our atelier team will contact you within 24 hours to schedule your private consultation.</p>
+                ">Thank you for your interest in GHOHARY. Our atelier team will contact you within 24 hours to schedule your private consultation.</p>
                 <button onclick="this.closest('[style*=fixed]').remove(); document.body.style.overflow = ''" style="
                     padding: 16px 40px;
-                    background: #0A0A0A;
+                    background: #5C4033;
                     color: #FFFFFF;
                     border: none;
                     font-family: 'Bodoni Moda', serif;
@@ -197,8 +197,8 @@ contactForms.forEach(form => {
                     text-transform: uppercase;
                     cursor: pointer;
                     transition: all 0.3s ease;
-                " onmouseover="this.style.background='#C9A961'; this.style.color='#0A0A0A'"
-                   onmouseout="this.style.background='#0A0A0A'; this.style.color='#FFFFFF'">Close</button>
+                " onmouseover="this.style.background='#D4AF37'; this.style.color='#FFFFFF'"
+                   onmouseout="this.style.background='#5C4033'; this.style.color='#FFFFFF'">Close</button>
             </div>
         `;
 
@@ -266,9 +266,9 @@ window.addEventListener('load', () => {
 // ===========================
 // Console Signature
 // ===========================
-console.log('%cMAISON VALMONT', 'font-family: Cinzel, serif; font-size: 28px; font-weight: 600; color: #C9A961; letter-spacing: 4px;');
-console.log('%cPARIS · EST. 1898', 'font-family: Bodoni Moda, serif; font-size: 11px; color: #8A8A8A; letter-spacing: 3px;');
-console.log('%cWhere elegance is eternal', 'font-family: Lora, serif; font-size: 13px; color: #4A4A4A; font-style: italic; margin-top: 10px;');
+console.log('%cGHOHARY', 'font-family: Cinzel, serif; font-size: 28px; font-weight: 600; color: #D4AF37; letter-spacing: 4px;');
+console.log('%cPARIS · EST. 1898', 'font-family: Bodoni Moda, serif; font-size: 11px; color: #8B7355; letter-spacing: 3px;');
+console.log('%cWhere elegance is eternal', 'font-family: Lora, serif; font-size: 13px; color: #6B4423; font-style: italic; margin-top: 10px;');
 
 // ===========================
 // Disable Right Click on Images (Luxury Protection)

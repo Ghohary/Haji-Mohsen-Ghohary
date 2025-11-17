@@ -1,4 +1,4 @@
-# MAISON VALMONT - Ultra-Luxury Haute Couture Evening Gowns
+# GHOHARY - Ultra-Luxury Haute Couture Evening Gowns
 
 An exquisite, ultra-luxury evening gowns website inspired by the world's finest jewelry houses and haute couture maisons - Chopard, Buccellati, Tiffany & Co., and Graff. This website embodies timeless elegance, exceptional craftsmanship, and unparalleled sophistication.
 
@@ -6,7 +6,7 @@ An exquisite, ultra-luxury evening gowns website inspired by the world's finest 
 
 This website captures the essence of ultra-luxury through:
 - **Refined Aesthetics**: Elegant serif typography (Playfair Display, Cinzel, Bodoni Moda, Lora)
-- **Opulent Color Palette**: Gold (#C9A961), deep blacks, creams, and pearl whites
+- **Opulent Color Palette**: Gold (#D4AF37), rich browns, beiges, nudes, and pure whites
 - **Generous White Space**: Editorial-style layouts with breathing room
 - **Subtle Animations**: Sophisticated, slow transitions that exude refinement
 - **Artisanal Details**: Rich textures including silk, diamond sparkle, pearl accents
@@ -106,15 +106,18 @@ This website captures the essence of ultra-luxury through:
 
 | Color | Hex Code | Usage |
 |-------|----------|-------|
-| Luxury Gold | `#C9A961` | Primary accent, prices, highlights |
-| Luxury Black | `#0A0A0A` | Primary text, backgrounds |
-| Luxury Charcoal | `#1A1A1A` | Secondary backgrounds |
-| Luxury Gray | `#4A4A4A` | Body text |
-| Luxury Light Gray | `#8A8A8A` | Labels, secondary text |
-| Luxury Cream | `#FAF8F5` | Menu backgrounds |
-| Luxury White | `#FFFFFF` | Primary background |
-| Luxury Pearl | `#F5F3F0` | Soft backgrounds |
-| Luxury Champagne | `#E8D5C4` | Warm accents |
+| Luxury Gold | `#D4AF37` | Primary accent, prices, highlights |
+| Dark Gold | `#B8941E` | Hover states, emphasis |
+| Rich Brown | `#6B4423` | Hero gradients, warm accents |
+| Luxury Brown | `#5C4033` | Primary text, headings |
+| Chocolate | `#3E2723` | Dark backgrounds, depth |
+| Beige | `#D2B48C` | Soft accents |
+| Light Beige | `#E8D5C4` | Warm backgrounds |
+| Nude | `#F5E6D3` | Soft highlights |
+| Cream | `#FFF8DC` | Menu backgrounds |
+| White | `#FFFFFF` | Primary background |
+| Pearl | `#FAF0E6` | Soft backgrounds |
+| Warm White | `#FFFAF0` | Luxury backgrounds |
 
 ## Browser Support
 
@@ -259,8 +262,8 @@ This website draws inspiration from:
 
 ---
 
-**MAISON VALMONT**
+**GHOHARY**
 *PARIS · EST. 1898*
 Where elegance is eternal
 
-© 2024 Maison Valmont. All Rights Reserved.
+© 2024 GHOHARY. All Rights Reserved.
