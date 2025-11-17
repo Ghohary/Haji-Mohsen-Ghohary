@@ -2,6 +2,18 @@
 
 An exquisite, ultra-luxury evening gowns website inspired by the world's finest jewelry houses and haute couture maisons - Chopard, Buccellati, Tiffany & Co., and Graff. This website embodies timeless elegance, exceptional craftsmanship, and unparalleled sophistication.
 
+## 🌐 Live Deployments
+
+This website is deployed on multiple platforms:
+- **Vercel**: Automatic deployment from this repository
+- **GitHub Pages**: Available via GitHub Actions workflow
+
+Latest deployment includes:
+- ✅ 22 fully functional pages
+- ✅ Fully responsive design (mobile, tablet, desktop)
+- ✅ Component-based header/footer system
+- ✅ Brown/gold/beige/nude luxury color palette
+
 ## Design Philosophy
 
 This website captures the essence of ultra-luxury through:
