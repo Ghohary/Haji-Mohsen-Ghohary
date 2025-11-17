@@ -50,6 +50,12 @@
     box-sizing: border-box;
 }
 
+/* Prevent horizontal overflow globally */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -62,7 +68,9 @@ body {
     background: var(--luxury-white);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
 }
 
 ::selection {
@@ -70,15 +78,40 @@ body {
     color: var(--luxury-white);
 }
 
-img {
+/* Responsive Images & Media */
+img,
+video,
+iframe,
+embed,
+object {
     max-width: 100%;
+    height: auto;
     display: block;
 }
 
+/* Responsive Tables */
+table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+/* Prevent text overflow */
+p, h1, h2, h3, h4, h5, h6,
+span, div, section, article {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Responsive links and buttons */
 a {
     text-decoration: none;
     color: inherit;
     transition: var(--transition-smooth);
+    max-width: 100%;
 }
 
 button {
@@ -86,6 +119,35 @@ button {
     background: none;
     cursor: pointer;
     font-family: inherit;
+    max-width: 100%;
+}
+
+/* Prevent pre and code from overflowing */
+pre, code {
+    max-width: 100%;
+    overflow-x: auto;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+/* ===========================
+   Layout Containers
+   =========================== */
+
+.container,
+.container-luxury {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.section-luxury {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding: 100px 0;
 }
 
 /* ===========================
@@ -1882,13 +1944,186 @@ button {
     justify-content: center;
 }
 
-/* Responsive Adjustments */
+/* ===========================
+   Global Responsive Utilities
+   =========================== */
+
+/* Ensure all containers are responsive */
+.container,
+.container-luxury,
+.nav-container,
+.top-bar-content,
+.footer-bottom-content {
+    max-width: 100%;
+    padding-left: clamp(15px, 4vw, 30px);
+    padding-right: clamp(15px, 4vw, 30px);
+    overflow-x: hidden;
+}
+
+/* Prevent sections from overflowing */
+section,
+header,
+footer,
+nav,
+main {
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Responsive grid fixes */
+.grid,
+[class*="grid"],
+[class*="-grid"] {
+    max-width: 100%;
+    overflow: visible;
+}
+
+/* Responsive flex containers */
+.flex,
+[class*="flex"],
+[style*="display: flex"] {
+    flex-wrap: wrap;
+}
+
+/* Ensure modals are responsive */
+[style*="position: fixed"] {
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Form elements responsive */
+input,
+textarea,
+select,
+.input-luxury,
+.textarea-luxury,
+.select-luxury {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Buttons responsive */
+.btn-luxury,
+.btn-luxury-outline,
+.btn-luxury-submit,
+button[type="submit"] {
+    max-width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* ===========================
+   Mobile Responsive (< 768px)
+   =========================== */
 @media (max-width: 768px) {
+    /* Reset font size for better mobile readability */
+    html {
+        font-size: 14px;
+    }
+
+    /* Top bar mobile adjustments */
+    .top-bar {
+        font-size: 0.6rem;
+        padding: 6px 0;
+    }
+
+    .top-bar-content {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .top-left,
+    .top-right {
+        justify-content: center;
+    }
+
+    .separator {
+        margin: 0 8px;
+    }
+
+    /* Navigation mobile */
+    .nav-container {
+        padding: 15px 20px;
+    }
+
+    .logo-main {
+        font-size: 1rem;
+    }
+
+    .logo-sub {
+        font-size: 0.5rem;
+    }
+
+    /* Hero sections mobile */
+    .hero,
+    .page-hero {
+        min-height: 60vh;
+        padding: 80px 20px 60px;
+    }
+
+    .hero-title,
+    .page-hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+        letter-spacing: 1px;
+    }
+
+    /* Products grid mobile */
     .products-grid {
         grid-template-columns: 1fr;
         gap: 60px 0;
+        padding: 0 20px;
     }
 
+    /* Content sections mobile */
+    .section-luxury,
+    .products-section,
+    .content-page {
+        padding: 60px 0;
+    }
+
+    .section-description {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* Footer mobile */
+    .footer-grid-luxury {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-col {
+        padding: 0 20px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-bottom-luxury {
+        padding: 20px 15px;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-legal {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .separator-footer {
+        display: none;
+    }
+
+    /* Timeline mobile */
     .timeline::before {
         left: 20px;
     }
@@ -1903,12 +2138,118 @@ button {
         margin-right: 0 !important;
     }
 
+    /* Split sections mobile */
     .split-section {
         grid-template-columns: 1fr;
         gap: 40px;
     }
 
+    /* Feature grid mobile */
     .feature-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Collection CTA mobile */
+    .collection-cta {
+        padding: 60px 20px;
+        margin: 60px 0 0;
+    }
+
+    /* Table of contents mobile */
+    .toc {
+        padding: 20px;
+    }
+
+    /* Highlight box mobile */
+    .highlight-box {
+        padding: 20px;
+        margin: 30px 0;
+    }
+
+    /* Content container mobile */
+    .content-container {
+        padding: 0 20px;
+    }
+
+    /* Modal adjustments */
+    [style*="position: fixed"] > [style*="max-width"] {
+        max-width: 95vw !important;
+        margin: 20px auto !important;
+    }
+}
+
+/* ===========================
+   Tablet Responsive (768px - 1024px)
+   =========================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    html {
+        font-size: 15px;
+    }
+
+    .container-luxury {
+        padding: 0 40px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 30px;
+    }
+
+    .footer-grid-luxury {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===========================
+   Small Mobile (< 480px)
+   =========================== */
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+
+    .nav-container {
+        padding: 12px 15px;
+    }
+
+    .hero,
+    .page-hero {
+        min-height: 50vh;
+        padding: 70px 15px 50px;
+    }
+
+    .section-luxury,
+    .products-section,
+    .content-page {
+        padding: 40px 0;
+    }
+
+    .product-card-luxury {
+        margin: 0;
+    }
+
+    .btn-luxury,
+    .btn-luxury-outline,
+    .btn-luxury-submit {
+        padding: 14px 30px;
+        font-size: 0.7rem;
+    }
+
+    .collection-cta {
+        padding: 40px 15px;
+    }
+
+    .content-container {
+        padding: 0 15px;
+    }
+
+    .feature-card {
+        padding: 30px 20px;
     }
 }
