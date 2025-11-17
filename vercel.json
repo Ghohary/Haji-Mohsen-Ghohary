@@ -3,6 +3,8 @@
   "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
+  "buildCommand": null,
+  "outputDirectory": ".",
   "rewrites": [
     {
       "source": "/",
@@ -24,11 +26,33 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
         }
       ]
     },
     {
-      "source": "/(.+\\.(css|js|jpg|jpeg|png|gif|svg|woff|woff2|ttf|eot|ico|webp))",
+      "source": "/(.+\\.(css|js))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.+\\.(html))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.+\\.(jpg|jpeg|png|gif|svg|woff|woff2|ttf|eot|ico|webp))",
       "headers": [
         {
           "key": "Cache-Control",
