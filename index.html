@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover exquisite luxury evening dresses crafted for the most sophisticated occasions. Premium haute couture for the modern woman.">
+    <title>NOIR ÉLÉGANCE - Luxury Evening Dresses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">NOIR ÉLÉGANCE</div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#collection" class="nav-link">Collection</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title fade-in">Timeless Elegance</h1>
+            <p class="hero-subtitle fade-in-delay">Luxury Evening Dresses for the Modern Woman</p>
+            <a href="#collection" class="btn-primary fade-in-delay-2">Explore Collection</a>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section class="featured" id="collection">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Haute Couture</span>
+                <h2 class="section-title">Our Collection</h2>
+                <p class="section-description">Each dress is a masterpiece, meticulously crafted to perfection</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Dresses</button>
+                <button class="filter-btn" data-filter="gowns">Evening Gowns</button>
+                <button class="filter-btn" data-filter="cocktail">Cocktail</button>
+                <button class="filter-btn" data-filter="ball">Ball Gowns</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <article class="product-card" data-category="gowns">
+                    <div class="product-image">
+                        <div class="image-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <span class="image-text">SAPPHIRE DREAM</span>
+                        </div>
+                        <div class="product-badge">New</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Sapphire Dream Gown</h3>
+                        <p class="product-description">Flowing silk evening gown with crystal embellishments</p>
+                        <p class="product-price">$2,850</p>
+                        <button class="btn-secondary">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card" data-category="cocktail">
+                    <div class="product-image">
+                        <div class="image-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <span class="image-text">ROSE NOIR</span>
+                        </div>
+                        <div class="product-badge">Featured</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Rose Noir Cocktail</h3>
+                        <p class="product-description">Elegant velvet cocktail dress with lace details</p>
+                        <p class="product-price">$1,950</p>
+                        <button class="btn-secondary">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card" data-category="ball">
+                    <div class="product-image">
+                        <div class="image-placeholder" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                            <span class="image-text">GOLDEN HOUR</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Golden Hour Ball Gown</h3>
+                        <p class="product-description">Luxurious satin ball gown with gold threading</p>
+                        <p class="product-price">$3,450</p>
+                        <button class="btn-secondary">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card" data-category="gowns">
+                    <div class="product-image">
+                        <div class="image-placeholder" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                            <span class="image-text">AZURE MIST</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Azure Mist Evening</h3>
+                        <p class="product-description">Chiffon masterpiece with hand-sewn sequins</p>
+                        <p class="product-price">$2,650</p>
+                        <button class="btn-secondary">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 5 -->
+                <article class="product-card" data-category="cocktail">
+                    <div class="product-image">
+                        <div class="image-placeholder" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                            <span class="image-text">BLUSH AFFAIR</span>
+                        </div>
+                        <div class="product-badge">Trending</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Blush Affair</h3>
+                        <p class="product-description">Modern silhouette with vintage charm</p>
+                        <p class="product-price">$2,100</p>
+                        <button class="btn-secondary">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 6 -->
+                <article class="product-card" data-category="ball">
+                    <div class="product-image">
+                        <div class="image-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <span class="image-text">MIDNIGHT SKY</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Midnight Sky Ball Gown</h3>
+                        <p class="product-description">Dramatic tulle creation with celestial beading</p>
+                        <p class="product-price">$4,200</p>
+                        <button class="btn-secondary">View Details</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="section-label">Our Story</span>
+                    <h2 class="section-title">Crafting Dreams Since 1985</h2>
+                    <p>At Noir Élégance, we believe every woman deserves to feel extraordinary. Our master artisans combine traditional haute couture techniques with contemporary design to create evening dresses that transcend trends.</p>
+                    <p>Each piece is meticulously handcrafted using the finest fabrics sourced from renowned textile houses in Paris, Milan, and Tokyo. From the first sketch to the final stitch, our commitment to perfection is unwavering.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Bespoke Creations</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">38</div>
+                            <div class="stat-label">Years of Excellence</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Handcrafted</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 400px;">
+                        <span class="image-text">ARTISANAL CRAFTSMANSHIP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What They Say</span>
+                <h2 class="section-title">Client Stories</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The most exquisite dress I've ever worn. The attention to detail is phenomenal, and I felt like royalty at my gala."</p>
+                    <p class="testimonial-author">— Isabella M.</p>
+                    <p class="testimonial-location">New York</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Noir Élégance transformed my vision into reality. The craftsmanship is unparalleled, and the service is exceptional."</p>
+                    <p class="testimonial-author">— Sophia L.</p>
+                    <p class="testimonial-location">London</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Pure artistry. Every stitch tells a story of passion and dedication. This is not just a dress—it's a masterpiece."</p>
+                    <p class="testimonial-author">— Olivia R.</p>
+                    <p class="testimonial-location">Paris</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <span class="section-label">Get in Touch</span>
+                    <h2 class="section-title">Begin Your Journey</h2>
+                    <p>Schedule a private consultation with our design team to create your perfect evening dress.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Visit Our Atelier</h4>
+                                <p>123 Fifth Avenue, New York, NY 10001</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>Call Us</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contact@noirelegance.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="tel" placeholder="Phone Number">
+                    <textarea placeholder="Tell us about your dream dress..." rows="5" required></textarea>
+                    <button type="submit" class="btn-primary">Schedule Consultation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h3>Join Our Exclusive Circle</h3>
+            <p>Be the first to discover new collections and receive styling insights</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NOIR ÉLÉGANCE</h3>
+                    <p>Luxury evening dresses crafted for the extraordinary woman.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                        <a href="#" aria-label="Pinterest">Pinterest</a>
+                        <a href="#" aria-label="Facebook">Facebook</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#collection">Collection</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Noir Élégance. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
