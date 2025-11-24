@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GHOHARY | Haute Couture Dubai</title>
+    <title>About | GHOHARY Haute Couture</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
@@ -32,7 +32,6 @@
             overflow-x: hidden;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -45,7 +44,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.4s ease;
         }
 
         .logo {
@@ -55,7 +53,6 @@
             letter-spacing: 0.4em;
             color: var(--color-champagne);
             text-transform: uppercase;
-            cursor: pointer;
             text-decoration: none;
         }
 
@@ -73,26 +70,10 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--color-accent-gold);
-            transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
             color: var(--color-accent-gold);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
         }
 
         .menu-toggle {
@@ -109,188 +90,102 @@
             transition: 0.3s;
         }
 
-        /* Hero Section with Video */
-        .hero {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
+        /* Hero Section */
+        .about-hero {
+            height: 80vh;
+            background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-brown) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            color: var(--color-champagne);
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        .hero-overlay {
+        .about-hero::before {
+            content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(92, 74, 54, 0.3) 0%, rgba(92, 74, 54, 0.6) 100%);
-            z-index: 1;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="120" opacity="0.03" fill="%23F7E7CE" font-family="serif">G</text></svg>') center/cover;
+            opacity: 0.5;
         }
 
-        .hero-content {
+        .about-hero-content {
             position: relative;
             z-index: 2;
-            text-align: center;
-            color: white;
             max-width: 1200px;
             padding: 0 2rem;
-            animation: fadeInUp 1.5s ease-out;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
+        .about-hero h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(4rem, 12vw, 9rem);
+            font-size: clamp(4rem, 10vw, 7rem);
             font-weight: 300;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.08em;
+            margin-bottom: 2rem;
         }
 
-        .hero-tagline {
+        .about-hero p {
             font-size: clamp(1rem, 2vw, 1.3rem);
             font-weight: 300;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 3rem;
+            letter-spacing: 0.1em;
+            line-height: 1.8;
         }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-15px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-7px);
-            }
-        }
-
-        .scroll-indicator span {
-            color: white;
-            font-size: 0.8rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        /* Featured Collections */
-        .featured-collections {
-            padding: 0;
-        }
-
-        .collection-row {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .collection-tile {
-            position: relative;
-            aspect-ratio: 4/5;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .collection-tile img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .collection-tile:hover img {
-            transform: scale(1.08);
-        }
-
-        .collection-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(92, 74, 54, 0.9) 0%, transparent 60%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 3rem;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .collection-tile:hover .collection-overlay {
-            opacity: 1;
-        }
-
-        .collection-overlay h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: var(--color-champagne);
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.05em;
-            transform: translateY(20px);
-            transition: transform 0.5s ease;
-        }
-
-        .collection-tile:hover .collection-overlay h3 {
-            transform: translateY(0);
-        }
-
-        .collection-overlay p {
-            font-size: 0.9rem;
-            font-weight: 300;
-            color: var(--color-nude);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transform: translateY(20px);
-            transition: transform 0.5s ease 0.1s;
-        }
-
-        .collection-tile:hover .collection-overlay p {
-            transform: translateY(0);
-        }
-
-        /* Philosophy Section */
-        .philosophy {
+        /* Story Section */
+        .story-section {
             padding: 10rem 5%;
             background: var(--color-skin);
-            text-align: center;
         }
 
-        .philosophy-content {
-            max-width: 1000px;
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            max-width: 1400px;
             margin: 0 auto;
+            align-items: center;
         }
 
-        .philosophy h2 {
+        .story-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 300;
+            color: var(--color-deep-brown);
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--color-brown);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        .story-image {
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--color-beige), var(--color-brown));
+            box-shadow: 0 20px 60px rgba(92, 74, 54, 0.2);
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 10rem 5%;
+            background: linear-gradient(135deg, var(--color-nude) 0%, var(--color-champagne) 100%);
+        }
+
+        .values-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .values-content h2 {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(3rem, 6vw, 5rem);
             font-weight: 300;
@@ -299,47 +194,94 @@
             letter-spacing: 0.05em;
         }
 
-        .philosophy p {
-            font-size: 1.2rem;
-            line-height: 2;
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: var(--color-accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--color-skin);
+        }
+
+        .value-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--color-deep-brown);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            line-height: 1.8;
             color: var(--color-brown);
             font-weight: 300;
-            letter-spacing: 0.02em;
-            margin-bottom: 1.5rem;
         }
 
-        /* Testimonials */
-        .testimonials {
-            padding: 8rem 5%;
-            background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-nude) 100%);
+        /* Craftsmanship Section */
+        .craftsmanship {
+            padding: 10rem 5%;
+            background: var(--color-beige);
         }
 
-        .testimonial-slider {
-            max-width: 900px;
+        .craftsmanship-content {
+            max-width: 1000px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .testimonial-item {
-            padding: 3rem;
-        }
-
-        .testimonial-quote {
+        .craftsmanship h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-size: clamp(3rem, 6vw, 5rem);
             font-weight: 300;
-            font-style: italic;
             color: var(--color-deep-brown);
-            margin-bottom: 2rem;
-            line-height: 1.6;
+            margin-bottom: 3rem;
+            letter-spacing: 0.05em;
         }
 
-        .testimonial-author {
+        .craftsmanship-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--color-accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
             font-size: 0.9rem;
-            font-weight: 400;
-            letter-spacing: 0.2em;
-            color: var(--color-brown);
+            letter-spacing: 0.1em;
             text-transform: uppercase;
+            color: var(--color-brown);
         }
 
         /* CTA Section */
@@ -363,7 +305,6 @@
             font-weight: 300;
             letter-spacing: 0.1em;
             margin-bottom: 3rem;
-            text-transform: uppercase;
         }
 
         .cta-button {
@@ -376,7 +317,6 @@
             font-size: 0.85rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
-            font-weight: 400;
             transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
@@ -385,24 +325,23 @@
         .cta-button::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
+            inset: 0;
             background: var(--color-accent-gold);
-            transition: all 0.6s ease;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
         }
 
         .cta-button:hover::before {
-            width: 400px;
-            height: 400px;
+            transform: scaleX(1);
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
         }
 
         .cta-button:hover {
             color: var(--color-deep-brown);
-            transform: translateY(-2px);
         }
 
         /* Footer */
@@ -457,17 +396,21 @@
             text-align: center;
             font-size: 0.85rem;
             letter-spacing: 0.1em;
-            color: var(--color-beige);
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
-            nav {
-                padding: 1rem 5%;
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
 
-            .logo {
-                font-size: 1.2rem;
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .craftsmanship-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
             }
 
             .nav-links {
@@ -488,28 +431,6 @@
 
             .menu-toggle {
                 display: flex;
-            }
-
-            .menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
-
-            .collection-row {
-                grid-template-columns: 1fr;
-            }
-
-            .philosophy,
-            .testimonials,
-            .cta-section {
-                padding: 5rem 5%;
             }
         }
 
@@ -541,77 +462,78 @@
         </div>
     </nav>
 
-    <section class="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>GHOHARY</h1>
-            <p class="hero-tagline">Haute Couture · Dubai</p>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1>The GHOHARY Legacy</h1>
+            <p>A Journey of Uncompromising Excellence in Haute Couture</p>
         </div>
     </section>
 
-    <section class="featured-collections">
-        <div class="collection-row">
-            <div class="collection-tile">
-                <img src="" alt="Evening Gowns" style="background: linear-gradient(135deg, #D4C5B0, #8B6F47);">
-                <div class="collection-overlay">
-                    <h3>Evening Gowns</h3>
-                    <p>Timeless Elegance</p>
-                </div>
+    <section class="story-section">
+        <div class="story-grid">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>Founded in Dubai, GHOHARY represents the pinnacle of Middle Eastern haute couture. Our journey began with a singular vision: to create garments that transcend fashion and become timeless works of art.</p>
+                <p>Each GHOHARY creation is born from the perfect marriage of traditional craftsmanship and contemporary design, reflecting the rich cultural heritage of the region while embracing modern elegance.</p>
+                <p>Our atelier has become synonymous with luxury, sophistication, and unparalleled quality, serving discerning clients who demand nothing but the finest in haute couture.</p>
             </div>
-            <div class="collection-tile">
-                <img src="" alt="Bridal Couture" style="background: linear-gradient(135deg, #F5EBE0, #E8DDD1);">
-                <div class="collection-overlay">
-                    <h3>Bridal Couture</h3>
-                    <p>Eternal Romance</p>
-                </div>
-            </div>
+            <div class="story-image"></div>
         </div>
-        <div class="collection-row">
-            <div class="collection-tile">
-                <img src="" alt="Ready to Wear" style="background: linear-gradient(135deg, #B8936D, #8B6F47);">
-                <div class="collection-overlay">
-                    <h3>Ready to Wear</h3>
-                    <p>Modern Sophistication</p>
-                </div>
+    </section>
+
+    <section class="values-section">
+        <div class="values-content">
+            <h2>Our Values</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">✦</div>
+                <h3>Excellence</h3>
+                <p>Every piece is crafted to perfection, with meticulous attention to detail and unwavering commitment to quality.</p>
             </div>
-            <div class="collection-tile">
-                <img src="" alt="Accessories" style="background: linear-gradient(135deg, #D4AF37, #B8936D);">
-                <div class="collection-overlay">
-                    <h3>Accessories</h3>
-                    <p>Refined Details</p>
-                </div>
+            <div class="value-card">
+                <div class="value-icon">◈</div>
+                <h3>Innovation</h3>
+                <p>We push the boundaries of haute couture, blending traditional techniques with contemporary design philosophies.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">❖</div>
+                <h3>Individuality</h3>
+                <p>Each creation is tailored to celebrate the unique beauty and personality of the woman who wears it.</p>
             </div>
         </div>
     </section>
 
-    <section class="philosophy">
-        <div class="philosophy-content">
-            <h2>The Art of Couture</h2>
-            <p>At GHOHARY, we believe that haute couture is more than fashion—it is an art form that celebrates individuality, craftsmanship, and timeless elegance.</p>
-            <p>Each creation is meticulously handcrafted by our master artisans in Dubai, using the finest materials sourced from the world's most prestigious ateliers.</p>
-            <p>Our commitment to excellence ensures that every piece tells a unique story of beauty, sophistication, and unparalleled luxury.</p>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="testimonial-slider">
-            <div class="testimonial-item">
-                <p class="testimonial-quote">"GHOHARY represents the pinnacle of Middle Eastern haute couture. Each piece is a masterwork of design and craftsmanship."</p>
-                <p class="testimonial-author">— Harper's Bazaar Arabia</p>
+    <section class="craftsmanship">
+        <div class="craftsmanship-content">
+            <h2>Craftsmanship Beyond Compare</h2>
+            <p>Our master artisans dedicate countless hours to each creation, employing techniques passed down through generations. From hand-embroidery to intricate beadwork, every detail is executed with precision and artistry.</p>
+            
+            <div class="craftsmanship-stats">
+                <div class="stat">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Hours per Gown</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">800</div>
+                    <div class="stat-label">Unique Designs</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Master Artisans</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="cta-section">
-        <h2>Visit Our Atelier</h2>
-        <p>Experience Bespoke Luxury</p>
-        <a href="contact.html" class="cta-button">Book Appointment</a>
+        <h2>Experience GHOHARY</h2>
+        <p>Visit our atelier and discover the art of bespoke couture</p>
+        <a href="contact.html" class="cta-button"><span>Book Your Appointment</span></a>
     </section>
 
     <footer>
@@ -667,29 +589,7 @@
             navLinks.classList.toggle('active');
         });
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Parallax effect on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero-content');
-            if (hero && scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-                hero.style.opacity = 1 - (scrolled / window.innerHeight);
-            }
-        });
-
-        // Collection tiles animation on scroll
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
+        // Scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -697,13 +597,13 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.collection-tile').forEach((tile, index) => {
-            tile.style.opacity = '0';
-            tile.style.transform = 'translateY(50px)';
-            tile.style.transition = `all 0.8s ease ${index * 0.2}s`;
-            observer.observe(tile);
+        document.querySelectorAll('.value-card, .stat').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(el);
         });
     </script>
 </body>

@@ -1,0 +1,195 @@
+body {
+  margin: 0;
+  font-family: 'Playfair Display', 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  background: #f5ecd7; /* beige */
+  color: #3e2723; /* deep brown */
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #a67c52 0%, #d2b48c 100%); /* brown to skin */
+  color: #fff;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 12px rgba(166,124,82,0.12);
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #bfa76f; /* gold */
+  text-shadow: 0 2px 8px rgba(191,167,111,0.18);
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: #bfa76f; /* gold */
+}
+.hero {
+  background: linear-gradient(120deg, #d2b48c 0%, #f5ecd7 100%); /* skin to beige */
+  text-align: center;
+  padding: 7rem 2rem 5rem 2rem;
+  border-bottom: 1px solid #bfa76f;
+}
+.hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1.2rem;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+  color: #a67c52; /* brown */
+  text-shadow: 0 2px 12px rgba(191,167,111,0.18);
+}
+.hero p {
+  font-size: 1.4rem;
+  margin-bottom: 2.2rem;
+  color: #3e2723; /* deep brown */
+}
+.cta-btn {
+  background: linear-gradient(90deg, #bfa76f 0%, #d2b48c 100%); /* gold to skin */
+  color: #fff;
+  padding: 0.9rem 2.2rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.15rem;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(191,167,111,0.18);
+  transition: background 0.2s;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.cta-btn:hover {
+  background: #a67c52; /* brown */
+  color: #fffbe6;
+}
+.products {
+  padding: 5rem 2rem;
+  background: #f5ecd7; /* beige */
+  text-align: center;
+}
+.products h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2.2rem;
+  font-family: 'Playfair Display', serif;
+  color: #a67c52; /* brown */
+}
+.product-list {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.product-card {
+  background: #fffbe6; /* skin/beige */
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(191,167,111,0.12);
+  padding: 2.2rem;
+  width: 320px;
+  text-align: left;
+  transition: box-shadow 0.2s;
+  border: 1px solid #bfa76f;
+}
+.product-card:hover {
+  box-shadow: 0 12px 48px rgba(191,167,111,0.22);
+}
+.product-card img {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 1.2rem;
+  border: 1px solid #d2b48c;
+}
+.product-card h3 {
+  font-size: 1.4rem;
+  margin: 0.7rem 0;
+  font-family: 'Playfair Display', serif;
+  color: #a67c52; /* brown */
+}
+.product-card p {
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+  color: #3e2723; /* deep brown */
+}
+.buy-btn {
+  background: linear-gradient(90deg, #bfa76f 0%, #a67c52 100%); /* gold to brown */
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.7rem;
+  border-radius: 22px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.buy-btn:hover {
+  background: #a67c52;
+  color: #fffbe6;
+}
+.footer {
+  background: linear-gradient(90deg, #a67c52 0%, #d2b48c 100%);
+  color: #fff;
+  text-align: center;
+  padding: 2.2rem 1rem;
+  font-size: 1.05rem;
+  margin-top: 3rem;
+  border-top: 1px solid #bfa76f;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 900px) {
+  .product-list {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  .product-card {
+    width: 95vw;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  .logo {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 0;
+  }
+  .hero {
+    padding: 2.2rem 0.7rem 1.2rem 0.7rem;
+  }
+  .hero h1 {
+    font-size: 1.3rem;
+  }
+  .products {
+    padding: 1.2rem 0.5rem;
+  }
+  .products h2 {
+    font-size: 1.1rem;
+  }
+  .footer {
+    padding: 0.7rem 0.3rem;
+    font-size: 0.85rem;
+  }
+}
