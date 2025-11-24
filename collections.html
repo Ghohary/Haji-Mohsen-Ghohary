@@ -3,577 +3,1018 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Browse our exclusive collection of haute couture evening gowns. Each piece is a masterpiece of craftsmanship and elegance.">
-    <title>Collections - GHOHARY</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Collections | GHOHARY Haute Couture</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Bodoni+Moda:wght@400;500;600;700&family=Cinzel:wght@400;500;600&family=Lora:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        .page-hero {
-            min-height: 60vh;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-nude: #E8DDD1;
+            --color-beige: #D4C5B0;
+            --color-brown: #8B6F47;
+            --color-gold: #B8936D;
+            --color-deep-brown: #5C4A36;
+            --color-skin: #F5EBE0;
+            --color-accent-gold: #D4AF37;
+            --color-champagne: #F7E7CE;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-nude);
+            color: var(--color-deep-brown);
+            overflow-x: hidden;
+        }
+
+        /* Navigation - Same as homepage */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(92, 74, 54, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 5%;
             display: flex;
+            justify-content: space-between;
             align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            color: var(--color-champagne);
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-champagne);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent-gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--color-champagne);
+            transition: 0.3s;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 12rem 5% 6rem;
+            background: linear-gradient(135deg, var(--color-skin) 0%, var(--color-beige) 100%);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(4rem, 8vw, 6rem);
+            font-weight: 300;
+            color: var(--color-deep-brown);
+            margin-bottom: 1rem;
+            letter-spacing: 0.08em;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: var(--color-brown);
+            text-transform: uppercase;
+        }
+
+        /* Filter Navigation */
+        .filter-nav {
+            padding: 3rem 5%;
+            background: var(--color-skin);
+            border-bottom: 1px solid rgba(139, 111, 71, 0.2);
+            position: sticky;
+            top: 70px;
+            z-index: 100;
+        }
+
+        .filter-buttons {
+            display: flex;
             justify-content: center;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #2a2a2a 100%);
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--color-brown);
+            color: var(--color-brown);
+            padding: 0.8rem 2rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--color-accent-gold);
+            border-color: var(--color-accent-gold);
+            color: var(--color-skin);
+        }
+
+        /* Collections Grid */
+        .collections-grid {
+            padding: 5rem 5%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .collection-card {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--color-beige), var(--color-brown));
+        }
+
+        .collection-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .collection-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(92, 74, 54, 0.95) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+        }
+
+        .collection-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card-overlay h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--color-champagne);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+            transform: translateY(20px);
+            transition: transform 0.5s ease;
+        }
+
+        .collection-card:hover .card-overlay h3 {
+            transform: translateY(0);
+        }
+
+        .card-overlay p {
+            font-size: 0.85rem;
+            color: var(--color-nude);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.1s;
+        }
+
+        .collection-card:hover .card-overlay p {
+            transform: translateY(0);
+        }
+
+        .card-overlay .price {
+            font-size: 1rem;
+            color: var(--color-accent-gold);
+            margin-top: 0.5rem;
+            letter-spacing: 0.1em;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.2s;
+        }
+
+        .collection-card:hover .card-overlay .price {
+            transform: translateY(0);
+        }
+
+        /* Featured Banner */
+        .featured-banner {
+            padding: 10rem 5%;
+            background: linear-gradient(135deg, var(--color-deep-brown) 0%, var(--color-brown) 100%);
+            text-align: center;
+            color: var(--color-champagne);
+            margin: 5rem 0;
+        }
+
+        .featured-banner h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .featured-banner p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.3rem 3.5rem;
+            background: transparent;
+            border: 2px solid var(--color-accent-gold);
+            color: var(--color-champagne);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .page-hero::before {
+        .cta-button::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 30% 50%, rgba(201, 169, 97, 0.08) 0%, transparent 60%),
-                radial-gradient(circle at 70% 70%, rgba(201, 169, 97, 0.05) 0%, transparent 50%);
-            mix-blend-mode: screen;
+            inset: 0;
+            background: var(--color-accent-gold);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
         }
 
-        .page-header {
-            text-align: center;
-            color: white;
-            padding: 0 30px;
-            z-index: 1;
+        .cta-button:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .cta-button span {
             position: relative;
+            z-index: 1;
         }
 
-        .page-label {
-            font-family: var(--font-accent);
-            font-size: 0.65rem;
-            letter-spacing: 4px;
-            color: var(--luxury-gold);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            display: block;
+        .cta-button:hover {
+            color: var(--color-deep-brown);
         }
 
-        .page-title {
-            font-family: var(--font-display);
-            font-size: clamp(3rem, 8vw, 5rem);
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: var(--color-deep-brown);
+            color: var(--color-beige);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
             font-weight: 400;
-            margin-bottom: 25px;
-            letter-spacing: 2px;
-        }
-
-        .page-description {
-            font-family: var(--font-body);
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        .collection-controls {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 80px 30px 40px;
-        }
-
-        .filter-section {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .filter-group {
-            text-align: center;
-        }
-
-        .filter-label {
-            font-family: var(--font-accent);
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            color: var(--luxury-light-gray);
+            letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
-            margin-bottom: 20px;
-            display: block;
         }
 
-        .filter-buttons-row {
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: var(--color-beige);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-accent-gold);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            text-align: center;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* Product Modal */
+        .product-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(92, 74, 54, 0.95);
+            z-index: 2000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .product-modal.active {
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--color-skin);
+            max-width: 1200px;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: var(--color-deep-brown);
+            color: var(--color-champagne);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
             justify-content: center;
         }
 
-        .filter-btn-luxury {
-            padding: 14px 30px;
-            background: transparent;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            color: var(--luxury-charcoal);
-            font-family: var(--font-accent);
-            font-size: 0.7rem;
-            letter-spacing: 2px;
+        .modal-close:hover {
+            background: var(--color-accent-gold);
+            color: var(--color-deep-brown);
+            transform: rotate(90deg);
+        }
+
+        .modal-images {
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+        }
+
+        .thumbnail-gallery {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+            background: var(--color-nude);
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 106px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--color-accent-gold);
+        }
+
+        .modal-details {
+            padding: 3rem;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        .modal-details h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            color: var(--color-deep-brown);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .modal-category {
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-brown);
+            margin-bottom: 2rem;
+        }
+
+        .modal-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--color-accent-gold);
+            margin-bottom: 2rem;
+        }
+
+        .modal-description {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--color-brown);
+            margin-bottom: 2rem;
+            white-space: pre-line;
+        }
+
+        .product-details-grid {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--color-beige);
+        }
+
+        .detail-label {
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-brown);
+        }
+
+        .detail-value {
+            font-size: 0.95rem;
+            color: var(--color-deep-brown);
+        }
+
+        .btn-inquiry {
+            display: block;
+            width: 100%;
+            padding: 1.2rem 2rem;
+            background: var(--color-deep-brown);
+            border: 2px solid var(--color-deep-brown);
+            color: var(--color-champagne);
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             cursor: pointer;
-            transition: var(--transition-smooth);
+            transition: all 0.4s ease;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .filter-btn-luxury:hover,
-        .filter-btn-luxury.active {
-            background: var(--luxury-black);
-            color: white;
-            border-color: var(--luxury-black);
+        .btn-inquiry::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--color-accent-gold);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
         }
 
-        .collection-count {
-            text-align: center;
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            color: var(--luxury-light-gray);
-            margin-bottom: 40px;
+        .btn-inquiry:hover::before {
+            transform: scaleX(1);
         }
 
-        @media (min-width: 768px) {
-            .filter-section {
-                flex-direction: row;
-                justify-content: center;
-                align-items: flex-start;
+        .btn-inquiry span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-inquiry:hover {
+            color: var(--color-deep-brown);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
             }
 
-            .filter-group {
-                text-align: left;
+            .logo {
+                font-size: 1.2rem;
             }
 
-            .filter-buttons-row {
-                justify-content: flex-start;
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(92, 74, 54, 0.98);
+                width: 100%;
+                padding: 2rem 5%;
+                gap: 1.5rem;
+                transition: left 0.4s ease;
             }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .collections-grid {
+                grid-template-columns: 1fr;
+                padding: 3rem 5%;
+            }
+
+            .filter-buttons {
+                gap: 1rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.75rem;
+            }
+
+            /* Modal Mobile Styles */
+            .modal-content {
+                grid-template-columns: 1fr;
+                max-height: 90vh;
+                margin: 1rem;
+            }
+
+            .modal-details {
+                padding: 2rem 1.5rem;
+            }
+
+            .main-image {
+                aspect-ratio: 4/5;
+            }
+
+            .thumbnail-gallery {
+                padding: 0.5rem;
+            }
+
+            .thumbnail {
+                width: 60px;
+                height: 80px;
+            }
+
+            .modal-price {
+                font-size: 2rem;
+            }
+
+            .product-details-grid {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .collections-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background: var(--color-accent-gold);
+            color: var(--color-deep-brown);
         }
     </style>
 </head>
 <body>
-    <div id="header-container"></div>
-
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="page-header">
-            <span class="page-label">AUTUMN/WINTER 2024</span>
-            <h1 class="page-title">The Collection</h1>
-            <p class="page-description">Each gown is a masterpiece of artisanal craftsmanship, meticulously created by our master couturiers in Paris.</p>
+    <nav>
+        <a href="index.html" class="logo">GHOHARY</a>
+        <ul class="nav-links">
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="bridal.html">Bridal</a></li>
+            <li><a href="evening.html">Evening</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="atelier.html">Atelier</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>Collections</h1>
+        <p>Haute Couture · Spring Summer 2025</p>
     </section>
 
-    <!-- Collection Controls -->
-    <div class="collection-controls">
-        <div class="filter-section">
-            <div class="filter-group">
-                <span class="filter-label">Category</span>
-                <div class="filter-buttons-row">
-                    <button class="filter-btn-luxury active" data-filter="all">All Gowns</button>
-                    <button class="filter-btn-luxury" data-filter="evening">Evening Gowns</button>
-                    <button class="filter-btn-luxury" data-filter="cocktail">Cocktail</button>
-                    <button class="filter-btn-luxury" data-filter="ball">Ball Gowns</button>
+    <div class="filter-nav">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="evening">Evening</button>
+            <button class="filter-btn" data-filter="bridal">Bridal</button>
+            <button class="filter-btn" data-filter="rtw">Ready to Wear</button>
+            <button class="filter-btn" data-filter="accessories">Accessories</button>
+        </div>
+    </div>
+
+    <div class="collections-grid" id="collectionsGrid">
+        <!-- Products will be loaded dynamically from admin panel -->
+    </div>
+
+    <section class="featured-banner">
+        <h2>Bespoke Couture</h2>
+        <p>Create your dream piece with our master artisans</p>
+        <a href="contact.html" class="cta-button"><span>Schedule Consultation</span></a>
+    </section>
+
+    <!-- Product Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-images">
+                <img src="" alt="Product" class="main-image" id="mainImage">
+                <div class="thumbnail-gallery" id="thumbnailGallery"></div>
+            </div>
+            <div class="modal-details">
+                <h2 id="modalProductName">Product Name</h2>
+                <p class="modal-category" id="modalCategory">Category</p>
+                <div class="modal-price" id="modalPrice">AED 0</div>
+                <p class="modal-description" id="modalDescription"></p>
+                
+                <div class="product-details-grid" id="productDetailsGrid">
+                    <!-- Details will be inserted here -->
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <button class="btn-inquiry" onclick="viewProductPage()">
+                        <span>View Full Details</span>
+                    </button>
+                </div>
+                
+                <div style="margin-top: 1.5rem;">
+                    <p style="font-size: 1.1rem; color: var(--color-deep-brown); margin-bottom: 1rem; text-align: center;">
+                        <strong>Or Contact Us Directly</strong>
+                    </p>
+                    <div style="padding: 1.5rem; background: white; border-radius: 4px; text-align: center;">
+                        <p style="font-size: 0.9rem; color: var(--color-brown); margin-bottom: 1rem;">Get in touch to learn more about this piece</p>
+                        <p style="font-size: 1.1rem; color: var(--color-deep-brown); margin-bottom: 0.8rem;">
+                            <strong>📞 +971 50 123 4567</strong>
+                        </p>
+                        <p style="font-size: 1rem; color: var(--color-deep-brown); margin-bottom: 1rem;">
+                            <strong>✉️ contact@ghohary.com</strong>
+                        </p>
+                        <p style="font-size: 0.85rem; color: var(--color-brown); line-height: 1.6;">
+                            Dubai Design District, Building 6<br>
+                            Ground Floor, Dubai, UAE
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="collection-count" id="collectionCount">Showing <span id="count">9</span> masterpieces</div>
     </div>
 
-    <!-- Product Collection -->
-    <section class="collection" style="padding-top: 0;">
-        <div class="product-collection">
-            <div class="product-grid-luxury" id="productGrid">
-
-                <!-- Product 1 -->
-                <article class="product-item" data-category="evening" data-price="32800">
-                    <div class="product-image-wrapper">
-                        <div class="luxury-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-content" style="background: linear-gradient(135deg, #1a1818 0%, #2d2424 50%, #1a1818 100%);">
-                                <div class="silk-texture"></div>
-                            </div>
-                        </div>
-                        <div class="image-badge">New Arrival</div>
-                    </div>
-                    <div class="product-details-luxury">
-                        <span class="product-cat">EVENING GOWN</span>
-                        <h3 class="product-name-luxury">Midnight Reverie</h3>
-                        <p class="product-desc-luxury">Silk organza with hand-embroidered lace</p>
-                        <div class="product-price-luxury">$32,800</div>
-                    </div>
-                </article>
-
-                <!-- Product 2 -->
-                <article class="product-item" data-category="cocktail" data-price="24500">
-                    <div class="product-image-wrapper">
-                        <div class="luxury-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-content" style="background: linear-gradient(to bottom right, #f5f1ed 0%, #dcd0c0 50%, #c9b8a3 100%);">
-                                <div class="pearl-accent"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-details-luxury">
-                        <span class="product-cat">COCKTAIL DRESS</span>
-                        <h3 class="product-name-luxury">Champagne Sonata</h3>
-                        <p class="product-desc-luxury">Mikado silk with pearl embellishments</p>
-                        <div class="product-price-luxury">$24,500</div>
-                    </div>
-                </article>
-
-                <!-- Product 3 -->
-                <article class="product-item" data-category="ball" data-price="56000">
-                    <div class="product-image-wrapper">
-                        <div class="luxury-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-content" style="background: radial-gradient(ellipse at center, #3a3a52 0%, #1a1a2e 70%);">
-                                <div class="sapphire-glow"></div>
-                            </div>
-                        </div>
-                        <div class="image-badge">Limited Edition</div>
-                    </div>
-                    <div class="product-details-luxury">
-                        <span class="product-cat">BALL GOWN</span>
-                        <h3 class="product-name-luxury">Azure Symphony</h3>
-                        <p class="product-desc-luxury">Tulle and sapphire silk with crystal bodice</p>
-                        <div class="product-price-luxury">$56,000</div>
-                    </div>
-                </article>
-
-                <!-- Product 4 -->
-                <article class="product-item" data-category="evening" data-price="41200">
-                    <div class="product-image-wrapper">
-                        <div class="luxury-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-content" style="background: linear-gradient(135deg, #d4c5b0 0%, #f0e6d6 50%, #d4c5b0 100%);">
-                                <div class="gold-shimmer"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-details-luxury">
-                        <span class="product-cat">EVENING GOWN</span>
-                        <h3 class="product-name-luxury">Golden Reverie</h3>
-                        <p class="product-desc-luxury">Gold lamé with Chantilly lace overlay</p>
-                        <div class="product-price-luxury">$41,200</div>
-                    </div>
-                </article>
-
-                <!-- Product 5 -->
-                <article class="product-item" data-category="cocktail" data-price="28900">
-                    <div class="product-image-wrapper">
-                        <div class="luxury-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-content" style="background: linear-gradient(to bottom, #faf0f0 0%, #f5d9d9 50%, #ecc9c9 100%);">
-                                <div class="rose-petal"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-details-luxury">
-                        <span class="product-cat">COCKTAIL DRESS</span>
-                        <h3 class="product-name-luxury">Blush Serenade</h3>
-                        <p class="product-desc-luxury">Silk faille with rose appliqués</p>
-                        <div class="product-price-luxury">$28,900</div>
-                    </div>
-                </article>
-
-                <!-- Product 6 -->
-                <article class="product-item" data-category="ball" data-price="67500">
-                    <div class="product-image-wrapper">
-                        <div class="luxury-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-content" style="background: linear-gradient(135deg, #0f0f0f 0%, #2a2a2a 50%, #0f0f0f 100%);">
-                                <div class="diamond-sparkle"></div>
-                            </div>
-                        </div>
-                        <div class="image-badge">Signature Piece</div>
-                    </div>
-                    <div class="product-details-luxury">
-                        <span class="product-cat">BALL GOWN</span>
-                        <h3 class="product-name-luxury">Noir Impérial</h3>
-                        <p class="product-desc-luxury">Velvet and satin with diamond-cut beading</p>
-                        <div class="product-price-luxury">$67,500</div>
-                    </div>
-                </article>
-
-                <!-- Product 7 -->
-                <article class="product-item" data-category="evening" data-price="38500">
-                    <div class="product-image-wrapper">
-                        <div class="luxury-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-content" style="background: linear-gradient(to bottom, #e8ddd5 0%, #c9b8a8 50%, #a89584 100%);">
-                                <div class="pearl-accent"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-details-luxury">
-                        <span class="product-cat">EVENING GOWN</span>
-                        <h3 class="product-name-luxury">Pearl Cascade</h3>
-                        <p class="product-desc-luxury">Duchess satin with cascading pearl details</p>
-                        <div class="product-price-luxury">$38,500</div>
-                    </div>
-                </article>
-
-                <!-- Product 8 -->
-                <article class="product-item" data-category="cocktail" data-price="26800">
-                    <div class="product-image-wrapper">
-                        <div class="luxury-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-content" style="background: linear-gradient(135deg, #2d1f1f 0%, #1a0f0f 50%, #2d1f1f 100%);">
-                                <div class="silk-texture"></div>
-                            </div>
-                        </div>
-                        <div class="image-badge">New Arrival</div>
-                    </div>
-                    <div class="product-details-luxury">
-                        <span class="product-cat">COCKTAIL DRESS</span>
-                        <h3 class="product-name-luxury">Bordeaux Dreams</h3>
-                        <p class="product-desc-luxury">Silk crepe with velvet trim</p>
-                        <div class="product-price-luxury">$26,800</div>
-                    </div>
-                </article>
-
-                <!-- Product 9 -->
-                <article class="product-item" data-category="ball" data-price="59500">
-                    <div class="product-image-wrapper">
-                        <div class="luxury-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-content" style="background: linear-gradient(to bottom, #f8f5f2 0%, #e8dfd8 50%, #d8cfc8 100%);">
-                                <div class="gold-shimmer"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-details-luxury">
-                        <span class="product-cat">BALL GOWN</span>
-                        <h3 class="product-name-luxury">Ivory Majesty</h3>
-                        <p class="product-desc-luxury">Silk mikado with sculptural draping</p>
-                        <div class="product-price-luxury">$59,500</div>
-                    </div>
-                </article>
-
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Discover</h3>
+                <ul>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="bridal.html">Bridal Couture</a></li>
+                    <li><a href="evening.html">Evening Wear</a></li>
+                    <li><a href="about.html">About GHOHARY</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="atelier.html">Bespoke Design</a></li>
+                    <li><a href="atelier.html">Private Consultation</a></li>
+                    <li><a href="atelier.html">Alterations</a></li>
+                    <li><a href="atelier.html">Made to Measure</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+971501234567">+971 50 123 4567</a></li>
+                    <li><a href="/cdn-cgi/l/email-protection#f4979b9a80959780b4939c9b9c95868dda979b99"><span class="__cf_email__" data-cfemail="b7d4d8d9c3d6d4c3f7d0dfd8dfd6c5ce99d4d8da">[email&#160;protected]</span></a></li>
+                    <li>Dubai Design District</li>
+                    <li>Dubai, UAE</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow</h3>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="editorial-intro" style="padding: 100px 30px;">
-        <div class="editorial-container">
-            <div class="editorial-quote" style="font-size: clamp(1.3rem, 3vw, 1.8rem);">
-                "Each gown tells a story of exceptional craftsmanship,<br>destined to become part of your legacy."
-            </div>
-            <div style="margin-top: 40px;">
-                <a href="contact.html" class="btn-outline" style="display: inline-block;">Schedule Private Appointment</a>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GHOHARY. All Rights Reserved.</p>
         </div>
-    </section>
+    </footer>
 
-    <div id="footer-container"></div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-    <script src="include-components.js"></script>
-    <script src="common.js"></script>
-    <script>
-        // Product Filtering
-        const filterButtons = document.querySelectorAll('.filter-btn-luxury');
-        const productItems = document.querySelectorAll('.product-item');
-        const countElement = document.getElementById('count');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
-        function updateCount() {
-            const visibleProducts = document.querySelectorAll('.product-item:not([style*="display: none"])').length;
-            countElement.textContent = visibleProducts;
+        // Filter functionality
+        const collectionCards = document.querySelectorAll('.collection-card');
+
+        // This block is redundant and can be removed since filtering is handled below.
+        // Remove this duplicate filterBtns event listener block.
+
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        collectionCards.forEach((card, index) =>
+        {
+            observer.observe(card);
+        });
+
+        // Load products from localStorage
+        let products = JSON.parse(localStorage.getItem('ghoharyProducts')) || [];
+        let currentFilter = 'all';
+
+        // Load products on page load
+        loadProducts(currentFilter);
+
+        function loadProducts(filter) {
+            const collectionsGrid = document.getElementById('collectionsGrid');
+            collectionsGrid.innerHTML = '';
+
+            const filteredProducts = filter === 'all' 
+                ? products 
+                : products.filter(p => p.category === filter);
+
+            if (filteredProducts.length === 0) {
+                collectionsGrid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 5rem 2rem;">
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--color-deep-brown); margin-bottom: 1rem;">No Products Available</p>
+                        <p style="font-size: 1.1rem; color: var(--color-brown); margin-bottom: 2rem;">Check back soon for new arrivals in this category.</p>
+                        ${products.length === 0 ? '<p style="font-size: 0.9rem; color: var(--color-brown);">Products will appear here once added via the admin panel.</p>' : ''}
+                    </div>
+                `;
+                return;
+            }
+
+            filteredProducts.forEach((product, index) => {
+                const card = document.createElement('div');
+                card.className = 'collection-card';
+                card.dataset.category = product.category;
+                card.dataset.productId = product.id;
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+
+                card.innerHTML = `
+                    <img src="${product.images[0]}" alt="${product.name}">
+                    <div class="card-overlay">
+                        <h3>${product.name}</h3>
+                        <p>${formatCategory(product.category)}</p>
+                        <div class="price">AED ${product.price.toLocaleString()}</div>
+                    </div>
+                `;
+
+                // Add click event
+                card.addEventListener('click', () => openModal(product));
+
+                collectionsGrid.appendChild(card);
+
+                // Trigger animation
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100);
+            });
         }
 
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
+        function formatCategory(cat) {
+            const categories = {
+                'evening': 'Evening Collection',
+                'bridal': 'Bridal Couture',
+                'rtw': 'Ready to Wear',
+                'accessories': 'Accessories'
+            };
+            return categories[cat] || cat;
+        }
+
+        // Modal functionality
+        let currentProduct = null;
+
+        function openModal(product) {
+            currentProduct = product;
+            const modal = document.getElementById('productModal');
+            const mainImage = document.getElementById('mainImage');
+            const thumbnailGallery = document.getElementById('thumbnailGallery');
+            
+            // Set product details
+            document.getElementById('modalProductName').textContent = product.name;
+            document.getElementById('modalCategory').textContent = formatCategory(product.category);
+            document.getElementById('modalPrice').textContent = `AED ${product.price.toLocaleString()}`;
+            document.getElementById('modalDescription').textContent = product.description || 'Contact us for more details about this exquisite piece.';
+            
+            // Set main image
+            mainImage.src = product.images[0];
+            
+            // Create thumbnails
+            thumbnailGallery.innerHTML = '';
+            product.images.forEach((img, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = img;
+                thumb.className = 'thumbnail' + (index === 0 ? ' active' : '');
+                thumb.onclick = () => {
+                    mainImage.src = img;
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                };
+                thumbnailGallery.appendChild(thumb);
+            });
+            
+            // Set product details
+            const detailsGrid = document.getElementById('productDetailsGrid');
+            detailsGrid.innerHTML = '';
+            
+            if (product.sku) {
+                detailsGrid.innerHTML += `
+                    <div class="detail-item">
+                        <span class="detail-label">SKU</span>
+                        <span class="detail-value">${product.sku}</span>
+                    </div>
+                `;
+            }
+            
+            if (product.material) {
+                detailsGrid.innerHTML += `
+                    <div class="detail-item">
+                        <span class="detail-label">Material</span>
+                        <span class="detail-value">${product.material}</span>
+                    </div>
+                `;
+            }
+            
+            if (product.color) {
+                detailsGrid.innerHTML += `
+                    <div class="detail-item">
+                        <span class="detail-label">Color</span>
+                        <span class="detail-value">${product.color}</span>
+                    </div>
+                `;
+            }
+            
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            currentProduct = null;
+        }
+
+        function viewProductPage() {
+            if (currentProduct) {
+                // Save current product to localStorage for the product page to read
+                localStorage.setItem('currentProduct', JSON.stringify(currentProduct));
+                // Navigate to product page
+                window.location.href = 'product.html';
+            }
+        }
+
+        // Close modal on outside click
+        document.getElementById('productModal').addEventListener('click', (e) => {
+            if (e.target.id === 'productModal') {
+                closeModal();
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
                 // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
+                filterBtns.forEach(b => b.classList.remove('active'));
                 // Add active class to clicked button
-                button.classList.add('active');
+                btn.classList.add('active');
 
-                const filterValue = button.getAttribute('data-filter');
-
-                productItems.forEach(card => {
-                    const category = card.getAttribute('data-category');
-
-                    if (filterValue === 'all' || category === filterValue) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 10);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
-                    }
-                });
-
-                updateCount();
+                const filter = btn.dataset.filter;
+                currentFilter = filter;
+                loadProducts(filter);
             });
         });
 
-        // Product Modal on Image Click
-        productItems.forEach(item => {
-            const productImage = item.querySelector('.luxury-image');
-            const productName = item.querySelector('.product-name-luxury')?.textContent || 'Luxury Gown';
-            const productPrice = item.querySelector('.product-price-luxury')?.textContent || '$0';
-            const productDesc = item.querySelector('.product-desc-luxury')?.textContent || 'Exquisite craftsmanship';
-            const productCat = item.querySelector('.product-cat')?.textContent || 'HAUTE COUTURE';
-
-            if (productImage) {
-                productImage.style.cursor = 'pointer';
-
-                productImage.addEventListener('click', () => {
-                    const modal = document.createElement('div');
-                    modal.style.cssText = `
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: rgba(10, 10, 10, 0.95);
-                        backdrop-filter: blur(20px);
-                        z-index: 10000;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 20px;
-                        animation: fadeIn 0.4s ease-out;
-                        overflow-y: auto;
-                    `;
-
-                    const imageHTML = productImage.querySelector('.image-content').outerHTML;
-
-                    modal.innerHTML = `
-                        <div style="
-                            background: #FFFFFF;
-                            max-width: 900px;
-                            width: 100%;
-                            max-height: 90vh;
-                            overflow-y: auto;
-                            animation: slideUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-                        ">
-                            <div style="position: relative;">
-                                <div style="aspect-ratio: 3/4; overflow: hidden;">
-                                    ${imageHTML}
-                                </div>
-                                <button onclick="this.closest('[style*=fixed]').remove(); document.body.style.overflow = ''"
-                                    style="
-                                        position: absolute;
-                                        top: 20px;
-                                        right: 20px;
-                                        width: 45px;
-                                        height: 45px;
-                                        background: rgba(255, 255, 255, 0.95);
-                                        backdrop-filter: blur(10px);
-                                        border: none;
-                                        cursor: pointer;
-                                        font-size: 1.5rem;
-                                        color: #5C4033;
-                                        transition: all 0.3s ease;
-                                        z-index: 10;
-                                    "
-                                    onmouseover="this.style.background='#D4AF37'; this.style.color='#FFFFFF'"
-                                    onmouseout="this.style.background='rgba(255, 255, 255, 0.95)'; this.style.color='#5C4033'"
-                                >×</button>
-                            </div>
-                            <div style="padding: 50px 40px;">
-                                <span style="
-                                    display: block;
-                                    font-family: 'Bodoni Moda', serif;
-                                    font-size: 0.65rem;
-                                    letter-spacing: 3px;
-                                    color: #8B7355;
-                                    margin-bottom: 15px;
-                                    text-transform: uppercase;
-                                ">${productCat}</span>
-                                <h2 style="
-                                    font-family: 'Playfair Display', serif;
-                                    font-size: clamp(2rem, 5vw, 3rem);
-                                    color: #5C4033;
-                                    margin-bottom: 15px;
-                                    font-weight: 400;
-                                ">${productName}</h2>
-                                <p style="
-                                    font-family: 'Playfair Display', serif;
-                                    font-size: clamp(1.8rem, 4vw, 2.5rem);
-                                    color: #D4AF37;
-                                    margin-bottom: 30px;
-                                    font-weight: 500;
-                                ">${productPrice}</p>
-                                <p style="
-                                    font-family: 'Lora', serif;
-                                    font-size: 1.05rem;
-                                    line-height: 1.9;
-                                    color: #4A4A4A;
-                                    margin-bottom: 40px;
-                                ">${productDesc}</p>
-
-                                <div style="
-                                    padding: 40px 0;
-                                    border-top: 1px solid rgba(0, 0, 0, 0.08);
-                                    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-                                    margin-bottom: 40px;
-                                ">
-                                    <h3 style="
-                                        font-family: 'Playfair Display', serif;
-                                        font-size: 1.3rem;
-                                        color: #5C4033;
-                                        margin-bottom: 25px;
-                                        font-weight: 500;
-                                    ">Details</h3>
-                                    <div style="display: grid; gap: 20px;">
-                                        <div style="display: flex; justify-content: space-between; padding: 10px 0;">
-                                            <span style="font-family: 'Bodoni Moda', serif; font-size: 0.75rem; letter-spacing: 2px; color: #8A8A8A; text-transform: uppercase;">Composition</span>
-                                            <span style="font-family: 'Lora', serif; font-size: 0.95rem; color: #1A1A1A;">100% Silk Charmeuse</span>
-                                        </div>
-                                        <div style="display: flex; justify-content: space-between; padding: 10px 0;">
-                                            <span style="font-family: 'Bodoni Moda', serif; font-size: 0.75rem; letter-spacing: 2px; color: #8A8A8A; text-transform: uppercase;">Craftsmanship</span>
-                                            <span style="font-family: 'Lora', serif; font-size: 0.95rem; color: #1A1A1A;">100% Handmade in Paris</span>
-                                        </div>
-                                        <div style="display: flex; justify-content: space-between; padding: 10px 0;">
-                                            <span style="font-family: 'Bodoni Moda', serif; font-size: 0.75rem; letter-spacing: 2px; color: #8A8A8A; text-transform: uppercase;">Lead Time</span>
-                                            <span style="font-family: 'Lora', serif; font-size: 0.95rem; color: #1A1A1A;">12-16 Weeks</span>
-                                        </div>
-                                        <div style="display: flex; justify-content: space-between; padding: 10px 0;">
-                                            <span style="font-family: 'Bodoni Moda', serif; font-size: 0.75rem; letter-spacing: 2px; color: #8A8A8A; text-transform: uppercase;">Customization</span>
-                                            <span style="font-family: 'Lora', serif; font-size: 0.95rem; color: #1A1A1A;">Available</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <a href="contact.html" onclick="this.closest('[style*=fixed]').remove(); document.body.style.overflow = '';"
-                                    style="
-                                        display: block;
-                                        width: 100%;
-                                        padding: 20px 50px;
-                                        background: #5C4033;
-                                        color: #FFFFFF;
-                                        text-align: center;
-                                        text-decoration: none;
-                                        font-family: 'Bodoni Moda', serif;
-                                        font-size: 0.75rem;
-                                        letter-spacing: 3px;
-                                        text-transform: uppercase;
-                                        cursor: pointer;
-                                        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-                                    "
-                                    onmouseover="this.style.background='#D4AF37'; this.style.color='#FFFFFF'"
-                                    onmouseout="this.style.background='#5C4033'; this.style.color='#FFFFFF'"
-                                >Request Private Appointment</a>
-                            </div>
-                        </div>
-                    `;
-
-                    document.body.appendChild(modal);
-                    document.body.style.overflow = 'hidden';
-
-                    // Close on background click
-                    modal.addEventListener('click', (e) => {
-                        if (e.target === modal) {
-                            modal.remove();
-                            document.body.style.overflow = '';
-                        }
-                    });
-                });
+        // Refresh products when page becomes visible (in case products were added)
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                products = JSON.parse(localStorage.getItem('ghoharyProducts')) || [];
+                loadProducts(currentFilter);
             }
         });
     </script>
-</body>
-</html>

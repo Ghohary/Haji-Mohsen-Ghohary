@@ -3,134 +3,796 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Ghohary. Schedule your private consultation at our Paris, New York, or London atelier.">
-    <title>Contact - GHOHARY</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Contact Us - GHOHARY Haute Couture</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Bodoni+Moda:wght@400;500;600;700&family=Cinzel:wght@400;500;600&family=Lora:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        .contact-hero {
-            padding: 180px 30px 100px;
-            background: var(--luxury-pearl);
-            text-align: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .contact-hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(3rem, 8vw, 5rem);
-            color: var(--luxury-black);
-            margin-bottom: 25px;
+
+        :root {
+            --color-nude: #E8DDD1;
+            --color-beige: #D4C5B0;
+            --color-brown: #8B6F47;
+            --color-gold: #B8936D;
+            --color-deep-brown: #5C4A36;
+            --color-skin: #F5EBE0;
+            --color-accent-gold: #D4AF37;
+            --color-champagne: #F7E7CE;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--color-skin) 0%, var(--color-beige) 100%);
+            color: var(--color-deep-brown);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(92, 74, 54, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
             font-weight: 400;
+            letter-spacing: 0.4em;
+            color: var(--color-champagne);
+            text-transform: uppercase;
+            text-decoration: none;
         }
-        .contact-hero p {
-            font-family: var(--font-body);
-            font-size: 1.1rem;
-            color: var(--luxury-gray);
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-champagne);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent-gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--color-champagne);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .contact-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 300;
+            color: var(--color-deep-brown);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--color-brown);
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.8;
         }
+
+        /* Contact Container */
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto 5rem;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(92, 74, 54, 0.15);
+        }
+
+        .form-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--color-deep-brown);
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group label .required {
+            color: var(--color-accent-gold);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--color-beige);
+            background: var(--color-skin);
+            color: var(--color-deep-brown);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-accent-gold);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            background: var(--color-deep-brown);
+            border: 2px solid var(--color-deep-brown);
+            color: var(--color-champagne);
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--color-accent-gold);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .btn-submit:hover::before {
+            transform: scaleX(1);
+        }
+
+        .btn-submit span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-submit:hover {
+            color: var(--color-deep-brown);
+        }
+
+        /* Success Message */
+        .success-message {
+            background: #4CAF50;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Contact Info */
+        .contact-info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(92, 74, 54, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--color-deep-brown);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-brown);
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--color-accent-gold);
+            min-width: 30px;
+        }
+
+        .info-details h4 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-deep-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-details p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .info-details a {
+            color: var(--color-brown);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-details a:hover {
+            color: var(--color-accent-gold);
+        }
+
+        /* Hours Card */
+        .hours-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--color-beige);
+        }
+
+        .hours-item:last-child {
+            border-bottom: none;
+        }
+
+        .hours-day {
+            font-weight: 500;
+            color: var(--color-deep-brown);
+        }
+
+        .hours-time {
+            color: var(--color-brown);
+        }
+
+        /* Map Section */
+        .map-section {
+            margin: 0 auto 5rem;
+            padding: 0 5%;
+            max-width: 1400px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(92, 74, 54, 0.15);
+            background: var(--color-beige);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .map-placeholder h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--color-deep-brown);
+            margin-bottom: 1rem;
+        }
+
+        .map-placeholder p {
+            color: var(--color-brown);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-directions {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--color-deep-brown);
+            color: var(--color-champagne);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .btn-directions:hover {
+            background: var(--color-accent-gold);
+            color: var(--color-deep-brown);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-deep-brown);
+            color: var(--color-champagne);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: var(--color-champagne);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-accent-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(92, 74, 54, 0.98);
+                width: 100%;
+                padding: 2rem 5%;
+                gap: 1.5rem;
+                transition: left 0.4s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .contact-hero {
+                padding: 6rem 5% 3rem;
+                min-height: 50vh;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-form-section {
+                padding: 2rem;
+            }
+
+            .form-title {
+                font-size: 2rem;
+            }
+
+            .map-container {
+                height: 350px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background: var(--color-accent-gold);
+            color: var(--color-deep-brown);
+        }
     </style>
 </head>
 <body>
-    <div id="header-container"></div>
+    <nav>
+        <a href="index.html" class="logo">GHOHARY</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
     <section class="contact-hero">
-        <span class="page-label">GET IN TOUCH</span>
-        <h1>Contact Us</h1>
-        <p>We invite you to begin your journey with Ghohary. Schedule a private consultation or visit us at one of our exclusive ateliers.</p>
-    </section>
-
-    <section class="contact-luxury">
-        <div class="contact-split">
-            <div class="contact-info-luxury">
-                <span class="section-label-luxury">OUR LOCATIONS</span>
-                <h2 class="section-title-luxury">Visit Our<br>Ateliers</h2>
-
-                <div class="contact-locations">
-                    <div class="location">
-                        <h4 class="location-city">Paris</h4>
-                        <p class="location-address">24 Place Vendôme<br>75001 Paris, France</p>
-                        <p class="location-phone">+33 1 42 86 82 00</p>
-                        <p class="location-phone">paris@maisonvalmont.com</p>
-                    </div>
-                    <div class="location">
-                        <h4 class="location-city">New York</h4>
-                        <p class="location-address">725 Fifth Avenue<br>New York, NY 10022</p>
-                        <p class="location-phone">+1 212 755 8000</p>
-                        <p class="location-phone">newyork@maisonvalmont.com</p>
-                    </div>
-                    <div class="location">
-                        <h4 class="location-city">London</h4>
-                        <p class="location-address">165 New Bond Street<br>London W1S 2UE</p>
-                        <p class="location-phone">+44 20 7493 8020</p>
-                        <p class="location-phone">london@maisonvalmont.com</p>
-                    </div>
-                </div>
-
-                <div class="contact-hours">
-                    <h4 class="hours-title">Atelier Hours</h4>
-                    <p>Monday - Friday: 10:00 AM - 6:00 PM<br>Saturday: By Appointment Only<br>Sunday: Closed</p>
-                    <p style="margin-top: 20px; font-style: italic; color: var(--luxury-light-gray);">All visits are by private appointment to ensure personalized attention.</p>
-                </div>
-            </div>
-
-            <div class="contact-form-luxury">
-                <h3 class="form-title">Request an Appointment</h3>
-                <form id="contactForm">
-                    <div class="form-row">
-                        <input type="text" placeholder="First Name" required class="input-luxury" name="firstName">
-                        <input type="text" placeholder="Last Name" required class="input-luxury" name="lastName">
-                    </div>
-                    <input type="email" placeholder="Email Address" required class="input-luxury" name="email">
-                    <input type="tel" placeholder="Phone Number" class="input-luxury" name="phone">
-
-                    <select class="input-luxury select-luxury" required name="location">
-                        <option value="">Preferred Location</option>
-                        <option>Paris</option>
-                        <option>New York</option>
-                        <option>London</option>
-                        <option>Virtual Consultation</option>
-                    </select>
-
-                    <select class="input-luxury select-luxury" name="occasion">
-                        <option value="">Occasion (Optional)</option>
-                        <option>Gala / Red Carpet</option>
-                        <option>Wedding / Bridal</option>
-                        <option>Private Event</option>
-                        <option>Opera / Theatre</option>
-                        <option>Other</option>
-                    </select>
-
-                    <select class="input-luxury select-luxury" name="interest">
-                        <option value="">Area of Interest</option>
-                        <option>Ready-to-Wear Collection</option>
-                        <option>Bespoke Haute Couture</option>
-                        <option>Bridal Couture</option>
-                        <option>Atelier Tour</option>
-                        <option>General Inquiry</option>
-                    </select>
-
-                    <textarea placeholder="Tell us about your vision and any specific requirements..." rows="5" required class="input-luxury textarea-luxury" name="message"></textarea>
-
-                    <button type="submit" class="btn-luxury-submit">Submit Request</button>
-
-                    <p class="form-note">A member of our atelier team will contact you within 24 hours to confirm your appointment and discuss your requirements in detail.</p>
-                </form>
-            </div>
+        <div class="hero-content">
+            <h1>Get In Touch</h1>
+            <p>We would be delighted to discuss your vision for a bespoke piece or answer any questions about our collections.</p>
         </div>
     </section>
 
-    <section class="editorial-intro" style="padding: 100px 30px; background: var(--luxury-black);">
-        <div class="editorial-container">
-            <div class="editorial-quote" style="color: white;">"We look forward to welcoming you to our world,<br>where your dreams become reality."</div>
-            <div class="editorial-author" style="color: var(--luxury-gold);">— The Ghohary Team</div>
+    <div class="contact-container">
+        <!-- Contact Form -->
+        <div class="contact-form-section">
+            <div class="success-message" id="successMessage">
+                Thank you for your message! We will contact you within 24 hours.
+            </div>
+
+            <h2 class="form-title">Send Us a Message</h2>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+971 50 123 4567">
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">I'm Interested In <span class="required">*</span></label>
+                    <select id="interest" name="interest" required>
+                        <option value="">Please Select</option>
+                        <option value="bridal">Bridal Couture</option>
+                        <option value="evening">Evening Wear</option>
+                        <option value="rtw">Ready to Wear</option>
+                        <option value="bespoke">Bespoke Design</option>
+                        <option value="alterations">Alterations</option>
+                        <option value="consultation">Private Consultation</option>
+                        <option value="other">Other Inquiry</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message <span class="required">*</span></label>
+                    <textarea id="message" name="message" required placeholder="Tell us about your vision..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <span>Send Message</span>
+                </button>
+            </form>
         </div>
-    </section>
 
-    <div id="footer-container"></div>
+        <!-- Contact Information -->
+        <div class="contact-info-section">
+            <!-- Location -->
+            <div class="info-card">
+                <h3>Visit Our Atelier</h3>
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-details">
+                        <h4>Address</h4>
+                        <p>Dubai Design District<br>Building 6, Ground Floor<br>Dubai, United Arab Emirates</p>
+                    </div>
+                </div>
+            </div>
 
-    <script src="include-components.js"></script>
-    <script src="common.js"></script>
+            <!-- Contact -->
+            <div class="info-card">
+                <h3>Contact Details</h3>
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-details">
+                        <h4>Phone</h4>
+                        <p><a href="tel:+971501234567">+971 50 123 4567</a></p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-details">
+                        <h4>Email</h4>
+                        <p><a href="mailto:contact@ghohary.com">contact@ghohary.com</a></p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📱</div>
+                    <div class="info-details">
+                        <h4>WhatsApp</h4>
+                        <p><a href="https://wa.me/971501234567" target="_blank">+971 50 123 4567</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="info-card">
+                <h3>Atelier Hours</h3>
+                <div class="hours-grid">
+                    <div class="hours-item">
+                        <span class="hours-day">Sunday - Thursday</span>
+                        <span class="hours-time">10:00 AM - 8:00 PM</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="hours-day">Friday</span>
+                        <span class="hours-time">2:00 PM - 9:00 PM</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="hours-day">Saturday</span>
+                        <span class="hours-time">10:00 AM - 9:00 PM</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="hours-day">Private Appointments</span>
+                        <span class="hours-time">By Arrangement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-section">
+        <div class="map-container">
+            <div class="map-placeholder">
+                <h3>Dubai Design District</h3>
+                <p>Building 6, Ground Floor, Dubai, UAE</p>
+                <a href="https://www.google.com/maps/search/Dubai+Design+District+Building+6" target="_blank" class="btn-directions">Get Directions</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Discover</h3>
+                <ul>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="collections.html?filter=bridal">Bridal Couture</a></li>
+                    <li><a href="collections.html?filter=evening">Evening Wear</a></li>
+                    <li><a href="about.html">About GHOHARY</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="contact.html">Bespoke Design</a></li>
+                    <li><a href="contact.html">Private Consultation</a></li>
+                    <li><a href="contact.html">Alterations</a></li>
+                    <li><a href="contact.html">Made to Measure</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+971501234567">+971 50 123 4567</a></li>
+                    <li><a href="mailto:contact@ghohary.com">contact@ghohary.com</a></li>
+                    <li>Dubai Design District</li>
+                    <li>Dubai, UAE</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow</h3>
+                <ul>
+                    <li><a href="#" target="_blank">Instagram</a></li>
+                    <li><a href="#" target="_blank">Facebook</a></li>
+                    <li><a href="#" target="_blank">Pinterest</a></li>
+                    <li><a href="#" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GHOHARY. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            
+            if (menuToggle.classList.contains('active')) {
+                menuToggle.children[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                menuToggle.children[1].style.opacity = '0';
+                menuToggle.children[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                menuToggle.children[0].style.transform = '';
+                menuToggle.children[1].style.opacity = '';
+                menuToggle.children[2].style.transform = '';
+            }
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                interest: document.getElementById('interest').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Save to localStorage (you can change this to send to a backend)
+            let inquiries = JSON.parse(localStorage.getItem('contactInquiries')) || [];
+            inquiries.push(formData);
+            localStorage.setItem('contactInquiries', JSON.stringify(inquiries));
+
+            // Show success message
+            successMessage.classList.add('show');
+            
+            // Reset form
+            contactForm.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+
+            // Scroll to top to see message
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Log to console (for testing)
+            console.log('Form submitted:', formData);
+            console.log('All inquiries:', inquiries);
+        });
+    </script>
 </body>
 </html>
